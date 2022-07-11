@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-// import { DropDown, DropBtn } from '../Dropdown';
+import { DropDown, DropBtn } from '../Dropdown';
 import TabCtx from './TabCtx';
 const TabDropDown = ({ line = true, label, id, children, value }) => {
 	const tabHandler = useContext(TabCtx);
