@@ -1,0 +1,52 @@
+[class^="heading"] {
+	display: inline-block;
+}
+
+.heading {
+	&_tiny {
+		font-size: 14px;
+		font-weight: $weight-1;
+	}
+
+	&_small {
+		font-size: 16px;
+		font-weight: $weight-1;
+	}
+
+	&_med {
+		font-size: 18px;
+		font-weight: $weight-2;
+	}
+	&_avg{
+		font-size: 20px;
+		font-weight: $weight-2;
+	}
+	&_med_1 {
+		font-size: 24px;
+		font-weight: $weight-2;
+	}
+	&_med_2 {
+		font-size: 32px;
+		font-weight: $weight-2;
+	}
+	&_lg {
+		font-size: 36px;
+		font-weight: $weight-3;
+	}
+	&_xl {
+		font-size: 48px;
+		font-weight: $weight-3;
+	}
+	&_huge {
+		font-size: 4.4rem;
+		font-weight: $weight-3;
+	}
+}
+.small {
+	font-size: 13px;
+}
+.smaller {
+	font-size: 11px;
+	font-weight: $weight-3;
+}
+

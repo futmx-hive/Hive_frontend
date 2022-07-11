@@ -1,0 +1,36 @@
+@import "../../styles/abstract/abstract";
+
+.commodity_con{
+    display: grid;
+    gap: 3.4rem;
+}
+
+.hr{
+    --template: 1fr ;
+    &::before{
+        display: none;
+    }
+}
+
+.comm_head_det{
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+ & > div{
+    display: grid;
+
+  }
+
+  & > div:not(:last-child){
+    border-right: 1px solid $col-bord-2;
+  }
+
+  & > :not(:first-child){
+    gap: 10px;
+    padding-left: 2.5rem;
+  }
+}
+
+.comm_home{
+  
+}

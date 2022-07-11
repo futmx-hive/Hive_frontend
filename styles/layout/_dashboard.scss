@@ -1,0 +1,25 @@
+.dashboard_layout {
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	height: 100vh;
+	overflow: hidden;
+
+	&.auto{
+		grid-template-columns: initial;
+	}
+
+
+	& > *:not(.sidebar .backdrop) {
+		overflow-x: hidden;
+		position: relative;
+	}
+
+	.sidebar {
+		align-self: start;
+		width: 26rem;
+		height: 100vh;
+		&_small{
+			width: auto;
+		}
+	}
+}

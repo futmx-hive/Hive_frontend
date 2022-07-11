@@ -1,0 +1,9 @@
+.icon{
+
+   & > span{
+        position: absolute;
+        top: 0;
+        right: -10%;
+        transform: translateY(-70%);
+    }
+}

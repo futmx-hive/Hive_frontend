@@ -1,0 +1,43 @@
+.tabs {
+	&_buttons_pack_grid{
+		display:grid;
+
+
+		.btn_tab_big{
+			background-color: $col-gray-1;
+			padding: 1.5rem 1rem;
+
+		  &.prev{
+			 border-bottom-right-radius: 10px;
+		  }
+			
+            &.active{
+               background-color: #fff;
+
+			   & + .btn_tab_big{
+				border-bottom-left-radius: 10px;
+			   }
+			}
+
+
+			
+		}
+	}
+	&_buttons_pack {
+		display: flex;
+		gap: 1.5rem;
+		padding: 1.5rem 0;
+		padding-bottom: 3px;
+		min-width: 35%;
+
+	
+
+		.dropdown {
+			position: relative;
+			&_base {
+				transform: initial;
+				top: 110%;
+			}
+		}
+	}
+}

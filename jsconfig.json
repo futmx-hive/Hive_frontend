@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@sprite/*":["/public/svg/sprite/*"],
+        "@layout/*": ["components/Layout/*"],
+        "@animations/*":["/Animations/*"],
+        "@hooks/*":["hooks/*"],
+        "@form-components/*":["components/Shared/Form/*"],
+        "@sharedUi/*":["components/Shared/UIelements/*"],
+        "@shared/*":["components/Shared/*"],
+        "@components/*": ["components/*"],
+      }
+    }
+  }

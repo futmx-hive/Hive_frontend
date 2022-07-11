@@ -1,6 +1,18 @@
-/** @type {import('next').NextConfig} */
+const path = require('path');
 const nextConfig = {
-  reactStrictMode: true,
-}
+	reactStrictMode: true,
+	sassOptions: {
+		includePaths: [path.resolve(__dirname, 'styles')],
+	},
+	redirects() {
+		return [
+			{
+				source: '/',
+				destination: '/dashboard',
+				permanent: false,
+			},
+		];
+	},
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
