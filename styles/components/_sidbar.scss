@@ -3,7 +3,13 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+
+	border-bottom: 2px solid $col-blue-light;
+	border-right: 2px solid $col-blue-light;
 	padding: 4rem  2rem;
+	&_hide{
+		display: none;
+	}
 	
 
 	&_toog {
@@ -25,7 +31,7 @@
 		}
 		span {
 		  position: relative;
-		  width: 3.9rem;
+		  width: 3rem;
 		  display: inline-block;
 		  height: 2px;
 		  border-radius: 5px;
@@ -37,7 +43,7 @@
 			content: "";
 			position: absolute;
 			height: 100%;
-			width: 3.9rem;
+			width: 2.5rem;
 			left: 0;
 			transform-origin: left;
 			background-color: $col-bord-1;
@@ -73,10 +79,9 @@
 	&_logo {
 		width: 17rem;
 		height: 4rem;
-		&.small{
-			width: 4rem;
-			height: 4rem;
-		}
+
+	
+
 	}
 
 	&_base {
@@ -100,10 +105,11 @@
 		padding: 1.4rem;
 	    white-space: nowrap;
 		padding-left: 14.999%;
-		color: $col-white-1;
+		color: $col-black;
 		font-weight: $weight-1;
 		position: relative;
 		transition: $transition;
+
 
 		&::before {
 			content: "";
@@ -117,7 +123,7 @@
 
 		&:hover,
 		&.active {
-			background-color: $col-pri-1;
+			color: $col-pri-1;
 
 			&::before {
 				opacity: 1;

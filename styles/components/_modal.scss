@@ -1,10 +1,13 @@
 .modal {
 	z-index: 10;
-	margin: auto;
 	display: block;
 
+	@include respond(gsm){
+		padding: 0 1.5rem;
+	}
+
 	& > * {
-		margin: auto;
+	min-width:0;
 	}
 }
 
@@ -15,53 +18,31 @@
 	z-index: 9;
 	bottom: 0;
 	z-index: 8;
-	left: calc(20rem);
+	left: calc(25rem);
+    display: grid;
+	align-content: center;
+	@include respond(gsm){
+		left: 0;
+	}
 
 	&.fill {
 		left: initial;
 	}
 }
-// .invoice_download_modal {
-// 	width: 71.8rem;
-// }
 
-.form_u_cus_det,
-.invoice_download_modal {
-	width: 71.8rem;
-}
-.med_modal {
-	width: 71.8rem;
-}
-.avg_modal{
-	width: 57.5rem;
-}
-.failed_auth_modal {
-	width: 32.7rem;
-}
 
-.whatsapp_num_modal {
-	.form_input {
+.modal_w{
+
+	&_med{
+      max-width: 512px;
+	  margin: 0 3rem;
+	  margin: auto;
+
+	  @include respond(gsm){
+		margin: 0;
 		width: 100%;
+		margin: 0 ;
+	  }
 	}
-	width: 51.6rem;
 }
 
-.small_modal {
-	width: 45.6rem;
-}
-.map_modal {
-	width: 80rem;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	.close_button {
-		top: 1rem;
-	}
-	.form_pkg {
-		padding: 3rem 2rem;
-		padding-top: 2rem;
-	}
-	#map_box {
-		overflow: hidden;
-		border-radius: 0 5px 5px 0;
-	}
-}

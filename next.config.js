@@ -13,6 +13,14 @@ const nextConfig = {
 			},
 		];
 	},
+	async rewrites() {
+		return [
+			{
+				source: '/settings',
+				destination: '/settings/profile',
+			},
+		];
+	},
 };
 
 module.exports = nextConfig;

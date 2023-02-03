@@ -7,7 +7,7 @@ import TrowCom from './TrowCom';
 
 function ComHome() {
 	return (
-		<section className={`${_.comm_home}`}>
+		<section className={`${_.comm_home} mt-2`}>
 			<div className='container-lg'>
 				<SearchBox />
 			</div>

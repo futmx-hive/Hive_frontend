@@ -28,6 +28,7 @@ $cons: 833 718 675 583 752;
 .container-lg {
     width: 91.261%;
     margin: auto;
+
 }
 .div_4 {
     display: grid;
@@ -115,6 +116,9 @@ $cons: 833 718 675 583 752;
     --b: 380px;
     grid-template-columns: minmax(var(--a),5fr)  minmax(var(--b) ,1.9fr);
     gap: var(--gap);
+    @include respond(gsm){
+        display: block;
+    }
 }
 .con_1_1 {
     --gap: 4rem;
@@ -150,6 +154,9 @@ $cons: 833 718 675 583 752;
 
 $gaps: 1.6rem 2.4rem 3rem 4rem;
 
+.flex-1{
+    flex: 1;
+}
 @for $var from 1 to 5 {
     .grid_txt_#{$var} {
         display: grid;

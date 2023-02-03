@@ -1,3 +1,4 @@
+import HideOnMobile from '@layout/HideOnMobile';
 import _ from '@sharedUi/UserCard.module.scss';
 export default function UserCard() {
 	return (
@@ -8,17 +9,19 @@ export default function UserCard() {
 				</svg>
 				<span className='dot bg-pri-light'></span>
 			</span>
-			<article className='user_card flexi gap-15'>
-				<div className='tiny-ci center-grid upp heading_small bg-pri col-w'>jw</div>
+			<HideOnMobile>
+				<article className='user_card flexi gap-15'>
+					<div className='tiny-ci center-grid upp heading_small bg-pri col-w'>jw</div>
 
-				<h5 className='heading_small cap'> john winsnow</h5>
+					<h5 className='heading_small cap'> john winsnow</h5>
 
-				<button>
-					<svg className='tiny_svg'>
-						<use xlinkHref='/svg/sprite/sprite.svg#down'></use>
-					</svg>
-				</button>
-			</article>
+					<button>
+						<svg className='tiny_svg'>
+							<use xlinkHref='/svg/sprite/sprite.svg#down'></use>
+						</svg>
+					</button>
+				</article>
+			</HideOnMobile>
 		</div>
 	);
 }

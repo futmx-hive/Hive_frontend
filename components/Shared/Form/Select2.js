@@ -77,7 +77,7 @@ const Select2 = ({
 	return (
 		<div className='form_group'>
 			{label && (
-				<label htmlFor={name} className='form_label open  cap weit-2 col-bl'>
+				<label htmlFor={name} className='form_label open  cap  col-bl'>
 					{label}
 				</label>
 			)}
@@ -106,7 +106,7 @@ const Select2 = ({
 				classNamePrefix={'form_input'}
 				theme={(theme) => ({
 					...theme,
-					borderRadius: 16,
+					borderRadius: 8,
 					borderWidth: 1,
 				})}
 				styles={{

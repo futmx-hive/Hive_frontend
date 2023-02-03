@@ -1,16 +1,17 @@
-import { useEffect, useContext } from 'react';
-import Link from 'next/link';
-import SidebarLink from './sidebarLink';
+import { useEffect, useContext } from "react";
+import Link from "next/link";
+import SidebarLink from "./sidebarLink";
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { DbrdCtx } from '@layout/DashboardLayout';
-import { slideIn } from '@animations/index';
+import { motion, AnimatePresence } from "framer-motion";
+import { DbrdCtx } from "@layout/DashboardLayout";
+import { slideIn } from "@animations/index";
 const Sidebar = ({ data }) => {
 	const { width, _ } = useContext(DbrdCtx);
 	const breakpoint = 1200;
+	const isOpen = _.isOpen.toString();
 	useEffect(() => {
 		if (width > breakpoint && !_.isOpen) return _.open();
-	}, [width, _]);
+	}, [width, isOpen]);
 	useEffect(() => {
 		if (breakpoint > width) return _.close();
 		if (width > breakpoint) _.open();
@@ -20,7 +21,7 @@ const Sidebar = ({ data }) => {
 	return (
 		<AnimatePresence>
 			{_.isOpen && width < breakpoint && (
-				<motion.div className={'backdrop'} onClick={_.close} animate={{ opacity: 1 }} />
+				<motion.div className={"backdrop"} onClick={_.close} animate={{ opacity: 1 }} />
 			)}
 
 			<motion.div
@@ -28,12 +29,13 @@ const Sidebar = ({ data }) => {
 				initial='initial'
 				animate='final'
 				exit='initial'
-				id={`${breakpoint > width && _.isOpen ? 'res' : ''}`}
-				className={`sidebar bg-pri ${_.isOpen ? '' : 'sidebar_small'}`}>
+				id={`${breakpoint > width && _.isOpen ? "res" : ""}`}
+				className={`sidebar bg-w ${_.isOpen ? "" : "sidebar_hide"}`}
+			>
 				<div className='u-center'>
-					<Link href='/dashboard' className={!_.isOpen ? 'u-center' : ''}>
-						<svg className={`sidebar_logo col-w ${!_.isOpen ? 'small' : ''}`}>
-							<use xlinkHref={'/svg/sprite/sprite.svg' + (_.isOpen ? '#logo' : '#logo')} />
+					<Link href='/dashboard' className={!_.isOpen ? "u-center" : ""}>
+						<svg className={`sidebar_logo col-b `}>
+							<use xlinkHref={"/svg/sprite/sprite.svg" + (_.isOpen ? "#logo_gr" : "#logo_gr")} />
 						</svg>
 					</Link>
 					{!_.isOpen && (

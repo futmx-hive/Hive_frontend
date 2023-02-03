@@ -1,16 +1,15 @@
 import Card from '@sharedUi/Card';
-import React from 'react';
 import { Tabs, TabBtn, TabPanel, TAB_DESIGNS } from '@sharedUi/Tabs';
 import UseTabs from '@hooks/UseTabs';
 import CtaButton from '@sharedUi/CtaButton';
 import Field from '@form-components/Field';
 import Select2 from '@form-components/Select2';
-function FormTrade({ close }) {
+function FormTrade({ close, classes = '' }) {
 	const [active, setActive] = UseTabs(0);
 	return (
-		<Card stop>
+		<Card stop xtraClassNames={`${classes}`}>
 			<Tabs classes='' onChange={setActive} value={active} design={TAB_DESIGNS.BUTTON} max={2}>
-				<TabBtn label={'Buy'} />
+				<TabBtn  label={'Buy'} />
 				<TabBtn label={'sell'} />
 				<TabBtn label={'swap'} />
 			</Tabs>

@@ -1,6 +1,6 @@
 [class~="btn-"],
 [class^="btn"] {
-	@extend .heading_small;
+	font-size: 15px;
 	@extend .cap;
 	transition: $transition;
 
@@ -20,48 +20,27 @@ button {
 		}
 	}
 	&_med {
-		padding: 0.8em 1.3em;
+		padding: .9em 1.3em;
 	}
 	&_wide {
-		padding: 1em 3em;
+		padding: 1.2em 3.5em;
+
+	}
+	&_wide_1 {
+		padding: 1.2em 6em;
 
 	}
 	&_large {
 		padding: 1em 2em;
 		display: inline-block;
 	}
-	&_tab {
-		position: relative;
-		color: $col-black;
-		padding-bottom: 1.4rem;
 
-		&::before {
-			content: "";
-			top: 100%;
-			left: 0;
-			width: 100%;
-			height: 3px;
-			border-radius: 100px;
-			position: absolute;
-			background-color: currentColor;
-			transform-origin: left;
-			transform: scale(0);
-			transition: 0.2s linear;
-		}
-
-		&.active {
-			color: $col-blue;
-
-			&::before {
-				transform: scale(1);
-			}
-		}
-	}
 	&_white {
 		background-color: $col-white;
 		border: 2px solid $col-bord-2;
 	}
 	&_txt {
+		color: currentColor;
 		&:hover {
 			text-decoration: underline;
 		}
@@ -76,6 +55,10 @@ button {
 		&:hover {
 			background-color: $col-pri-btn;
 		}
+	}
+	&_pri_light{
+		color: $col-pri;
+		background-color: rgba($col-pri-light, 0.13)
 	}
 	&_gray_2 {
 		@extend .bg-g-2;
@@ -179,6 +162,7 @@ button {
 
 .btn_icon {
 	display: flex;
+	align-items: center;
 	gap: 1rem;
 
 
@@ -211,7 +195,7 @@ button {
 		display: none;
 
 		&:checked + .onoff {
-			background-color: $col-green;
+			background-color: $col-pri-1;
 
 			&::before {
 				transform: translate(-50%, -50%);
@@ -226,10 +210,10 @@ button {
 }
 .onoff {
 	display: inline-block;
-	height: 26px;
+	height: 30px;
 	width: 55px;
 	position: relative;
-	background-color: $col-red-btn;
+	background-color: #DEE2ED;
 	cursor: pointer;
 
 	&.disabled {
@@ -261,7 +245,7 @@ button {
 	}
 
 	&:hover::before {
-		box-shadow: 0 0 1px 10px rgba($col-gray-dark, 0.13);
+		box-shadow: 0 0 1px 10px rgba(#DEE2ED, 0.4);
 	}
 
 	&::before,
@@ -273,11 +257,11 @@ button {
 	}
 	&::before {
 		content: "";
-		width: 20px;
-		height: 20px;
+		width: 22px;
+		height: 22px;
 		border-radius: 50%;
 		background-color: $col-white;
-		left: 3px;
+		left: 4px;
 	}
 
 	&::after {
@@ -290,26 +274,4 @@ button {
 		right: 12%;
 	}
 }
-// #D8D8D8
-.hov {
-	&_red,
-	&_gr {
-		transition: 0.12s linear;
-	}
-	&_red {
-		&:hover {
-			background: $col-white-1;
-			svg {
-				fill: $col-red;
-			}
-		}
-	}
-	&_gr {
-		&:hover {
-			background-color: $col-white-1;
-			svg {
-				fill: $col-green;
-			}
-		}
-	}
-}
+

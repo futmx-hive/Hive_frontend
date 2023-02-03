@@ -6,6 +6,7 @@
         "@layout/*": ["components/Layout/*"],
         "@animations/*":["/Animations/*"],
         "@hooks/*":["hooks/*"],
+        "@utils/*":["utils/*"],
         "@form-components/*":["components/Shared/Form/*"],
         "@sharedUi/*":["components/Shared/UIelements/*"],
         "@shared/*":["components/Shared/*"],

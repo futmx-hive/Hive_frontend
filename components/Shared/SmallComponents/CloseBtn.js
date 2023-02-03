@@ -1,18 +1,12 @@
 import React from 'react';
-import sprite from '../../../Assets/imagery/svg/sprite.svg';
+import Icon from './Icon';
 
-const CloseBtn = ({close}) => {
-  return (
-    <button
-      type="button"
-      className="small_svg_1 center-flex close_button"
-      onClick={close}
-    >
-      <svg className="small_svg_1" style={{fill: '#676767'}}>
-        <use xlinkHref={sprite + '#close'} />
-      </svg>
-    </button>
-  );
+const CloseBtn = ({ close, classes = '', iconClasses = '' }) => {
+	return (
+		<button type='button' className={`small_svg_1 center-flex close_button ${classes}`} onClick={close}>
+			<Icon id={'#close'} classes={`small_svg ${iconClasses}`} style={{ fill: '#676767' }} />
+		</button>
+	);
 };
 
 export default CloseBtn;

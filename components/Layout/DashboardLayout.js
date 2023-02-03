@@ -1,37 +1,38 @@
-import { createContext } from 'react';
-import Sidebar from '../Shared/UIelements/Sidebar';
-import UseToogle from '@hooks/UseToogle';
-import useResize from '@hooks/UseResize';
+import Sidebar from "../Shared/UIelements/Sidebar";
+import { createContext } from "react";
+import UseToogle from "@hooks/UseToogle";
+import useResize from "@hooks/UseResize";
 
 const DbrdCtx = createContext();
 const DashboardLayout = ({ children }) => {
 	const _ = UseToogle(true);
-	const width = useResize;
+	const width = useResize();
 	const sidebarData = [
 		{
-			title: 'dashboard',
-			icon: 'dashboard',
+			title: "dashboard",
+			icon: "dashboard",
 		},
 		{
-			title: 'commodity market',
-			icon: 'commodity',
+			title: "pools",
+			icon: "pools",
 		},
 		{
-			title: 'transaction',
-			icon: 'transaction',
+			title: "assignees",
+			icon: "commodity",
 		},
 		{
-			title: 'portofolio',
-			icon: 'portfolio',
+			title: "projects",
+			icon: "portfolio",
 		},
 		{
-			title: 'settings',
-			icon: 'settings',
+			title: "settings",
+			icon: "settings",
+			link: "settings/profile",
 		},
 	];
 	return (
 		<DbrdCtx.Provider value={{ _, width }}>
-			<main className={`dashboard_layout ${_.isOpen && width < 1200 ? 'auto' : ''}`}>
+			<main className={`dashboard_layout ${_.isOpen && width < 1200 ? "auto" : ""}`}>
 				<Sidebar data={sidebarData} />
 				{children}
 			</main>

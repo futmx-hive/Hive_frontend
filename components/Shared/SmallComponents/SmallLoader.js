@@ -1,6 +1,3 @@
-import React from 'react';
-import './loader.module.css';
-
 const SmallLoader = ({ scale = 0.8, classes }) => {
 	return (
 		<div className={`lds-spinner ${classes}`} style={{ transform: `scale(${scale ? scale : 1})` }}>

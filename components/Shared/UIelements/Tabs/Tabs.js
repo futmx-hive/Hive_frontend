@@ -6,15 +6,26 @@ export const TAB_DESIGNS = {
 	BUTTON: 'BUTTON',
 };
 
-const Tabs = ({ children, value, onChange, classes = 'sp-btw flexi', right, design = TAB_DESIGNS.BUTTON, max }) => {
+const Tabs = ({
+	children,
+	value,
+	onChange,
+	classes = 'sp-btw flexi',
+	right,
+	design = TAB_DESIGNS.BUTTON,
+	max,
+	tabContainerClasses = '',
+}) => {
 	let numberOfChildren = React.Children.toArray(children).length;
 
 	return (
 		<div className={` ${classes}`}>
 			<div
-				className={`${TAB_DESIGNS.BUTTON === design ? 'tabs_buttons_pack_grid' : 'tabs_buttons_pack'} `}
+				className={`${
+					TAB_DESIGNS.BUTTON === design ? 'tabs_buttons_pack_grid' : 'tabs_buttons_pack bord-bott-2'
+				} ${tabContainerClasses}`}
 				style={{
-					display: TAB_DESIGNS.BUTTON === design ? 'grid' : 'block',
+					display: TAB_DESIGNS.BUTTON === design ? 'grid' : 'flex',
 					gridTemplateColumns:
 						TAB_DESIGNS.BUTTON === design ? `repeat(${numberOfChildren},1fr)` : 'unset',
 				}}>

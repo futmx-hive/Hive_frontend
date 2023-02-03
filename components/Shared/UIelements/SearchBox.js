@@ -12,7 +12,7 @@ const SearchBox = ({ value, onChange, placeholder, readonly = false }) => {
 					onChange={(e) => onChange(e.target.value)}
 					readOnly={readonly}
 				/>
-				<svg style={{ width: '25px', height: '25px', margin: '0 8px' }}>
+				<svg style={{ width: '2.5rem', height: '2.5rem', margin: '0 8px' }}>
 					<use xlinkHref={`/svg/sprite/sprite.svg#search`} />
 				</svg>
 			</div>

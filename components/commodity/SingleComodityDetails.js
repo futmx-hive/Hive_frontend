@@ -2,12 +2,15 @@ import BalanceShowcase from '@components/Dashboard/BalanceShowcase';
 import Icon from '@components/Shared/SmallComponents/Icon';
 import TrendValue from '@components/Shared/SmallComponents/TrendValue';
 import UseToggle from '@hooks/UseToogle';
+import HideOnMobile from '@layout/HideOnMobile';
+import BackButtonAndText from '@shared/SmallComponents/BackButtonAndText';
 import FormTrade from '@shared/Transaction/FormTrade';
 import RecentTransactions from '@shared/Transaction/RecentTransactions';
 import Card from '@sharedUi/Card';
 import Faq from '@sharedUi/FaQ';
 import Modal from '@sharedUi/Modal';
 import React from 'react';
+import ReviewCommodityDetails from './ReviewCommodityDetails';
 import _ from './style.module.scss';
 
 const faqData = ['website', 'explorers', 'reddit', 'source code', 'technical documentation'];
@@ -17,6 +20,9 @@ function SingleComodityDetails() {
 	return (
 		<div className='container-lg con_5_2 al-start'>
 			<section className={`${_.commodity_con}`}>
+				<div className='mt-2'>
+					<BackButtonAndText />
+				</div>
 				<DetailsHeader open={modToog.open} />
 				<BalanceShowcase />
 				<DetailsBase />
@@ -26,7 +32,8 @@ function SingleComodityDetails() {
 				<RecentTransactions />
 			</aside>
 			<Modal isOpen={modToog.isOpen} close={modToog.close}>
-				<FormTrade />
+				<ReviewCommodityDetails />
+				{/* <FormTrade classes='modal_w_med' /> */}
 			</Modal>
 		</div>
 	);
@@ -36,8 +43,8 @@ export default SingleComodityDetails;
 
 function DetailsHeader({ open }) {
 	return (
-		<Card xtraClassNames={'p-3'}>
-			<div className='flexi sp-btw mb-3'>
+		<Card xtraClassNames={`p-3 ${_.details_pkg}`}>
+			<div className={`flexi sp-btw mb-3 ${_.details_header}`}>
 				<div className='grid_txt_1'>
 					<h5 className='cap'>maize(SMZ) Wallet</h5>
 					<h4 className='heading_lg weit-3 flexi gap-15'>
@@ -63,20 +70,22 @@ function DetailsHeader({ open }) {
 				</div>
 				<div>
 					<p className='col-gra-l cap '> market price</p>
-					<span className='heading_small weit-2 upp'> ₦ 520.80</span>
+					<span className='heading_small weit-2 upp no-wrap'> ₦ 520.80</span>
 				</div>
 				<div>
 					<p className='col-gra-l cap '> unit</p>
 					<span className='heading_small weit-2 cap'>Per ton</span>
 				</div>
-				<div>
-					<p className='flexi gap-15 cap col-gra-l weit-2'>
-						<Icon id={'#clock'} />
-						<span>24h change</span>
-						<Icon id={'#updown'} />
-					</p>
-					<span className='heading_small weit-2 cap col-gr'>520.80+125%</span>
-				</div>
+				<HideOnMobile>
+					<div>
+						<p className='flexi gap-15 cap col-gra-l weit-2'>
+							<Icon id={'#clock'} />
+							<span>24h change</span>
+							<Icon id={'#updown'} />
+						</p>
+						<span className='heading_small weit-2 cap col-gr'>520.80+125%</span>
+					</div>
+				</HideOnMobile>
 			</article>
 		</Card>
 	);
@@ -93,12 +102,12 @@ function DetailsBase() {
 				</p>
 			</div>
 			<div className={`hr mt-2 ${_.hr}`}></div>
-			<article className='mt-2 flex gap-15'>
-				<button className='btn_small  small tablet btn_bord col-gra-l'>mineable</button>
-				<button className='btn_small  small tablet btn_bord col-gra-l upp'>pow</button>
-				<button className='btn_small  small tablet btn_bord col-pri'>sha 256</button>
-				<button className='btn_small  small tablet btn_bord col-gra-l'>store-of-value</button>
-				<button className='btn_small  small tablet btn_bord col-gra-l'>state channels</button>
+			<article className='mt-2 flex gap-15 wrap'>
+				<button className='btn_small no-wrap  small tablet btn_bord col-gra-l'>mineable</button>
+				<button className='btn_small  no-wrap  small tablet btn_bord col-gra-l upp'>pow</button>
+				<button className='btn_small  no-wrap  small tablet btn_bord col-pri'>sha 256</button>
+				<button className='btn_small  no-wrap  small tablet btn_bord col-gra-l'>store-of-value</button>
+				<button className='btn_small  no-wrap  small tablet btn_bord col-gra-l'>state channels</button>
 			</article>
 
 			<aside className='mt-2 grid_txt_1'>

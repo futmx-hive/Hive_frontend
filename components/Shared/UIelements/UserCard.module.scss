@@ -1,5 +1,11 @@
+@import '../../../styles/abstract/abstract';
 .icon{
-
+    svg{
+        fill: $col-black;
+        @include respond(gsm){
+            fill: $col-white-1;
+        }
+    }
    & > span{
         position: absolute;
         top: 0;

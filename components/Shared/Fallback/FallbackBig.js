@@ -1,9 +1,10 @@
+import Icon from '@shared/SmallComponents/Icon';
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import FallBackScreen from './Fallback';
 
 const FallbackBig = ({
-	img,
+	imgID,
 	title,
 	body,
 	footer,
@@ -13,6 +14,7 @@ const FallbackBig = ({
 	classes,
 	onClick = null,
 	topContent,
+	childrenParams = [],
 }) => {
 	const resFooter = () => {
 		if (!!onClick) {
@@ -35,9 +37,7 @@ const FallbackBig = ({
 				<Fragment>
 					<div className='grid_txt'>
 						<div className='u-center'>
-							<svg className='lag_svg'>
-								<use xlinkHref={img} />
-							</svg>
+							<Icon id={imgID} classes='lag_svg' />
 						</div>
 						<h5 className='heading_med  col-bl'>{title}</h5>
 					</div>
@@ -49,7 +49,7 @@ const FallbackBig = ({
 			isOpen={isOpen}
 			hClass={classes}
 			topContent={topContent}>
-			{children}
+			{typeof children === 'function' ? children(...childrenParams) : children}
 		</FallBackScreen>
 	);
 };

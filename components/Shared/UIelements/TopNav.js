@@ -7,8 +7,13 @@ const TopNav = ({ title, right, classes = 'container-lg' }) => {
 	return (
 		<header className='top_nav bg-w '>
 			<div className={` m-auto sp-btw flexi  ${classes}`}>
+				{!_.isOpen && (
+					<div onClick={_.open} className='sidebar_toog '>
+						<span></span>
+					</div>
+				)}
 				<div>
-					<hi className='heading_lg col-bl cap'>{title}</hi>
+					<h1 className='heading_lg col-bl cap'>{title}</h1>
 				</div>
 				<div>{right ? right : <UserCard />}</div>
 			</div>

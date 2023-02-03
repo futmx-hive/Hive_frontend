@@ -1,24 +1,34 @@
 import React from 'react';
 import Link from 'next/link';
-import sprite from '../../../Assets/imagery/svg/sprite.svg';
+import Icon from './Icon';
+import { useRouter } from 'next/router';
 
-const BackButtonAndText = ({ text, to }) => {
-	const history = useHistory();
-	const svg = (
-		<svg className='med_svg mr-1'>
-			<use xlinkHref={sprite + '#back'} />
-		</svg>
+const BackButtonAndText = ({ text, to, onClick }) => {
+	const router = useRouter();
+	const svg = <Icon id={'#goback'} />;
+	let content = (
+		<>
+			{svg}
+			<span className='heading_tiny weit-2'>back</span>
+		</>
 	);
 	return (
-		<div className='flexi gap-15'>
+		<div className='flexi gap-15 mb-1'>
 			{to ? (
-				<Link to={to}>{svg}</Link>
+				<Link href={to}>
+					<a href='' className='btn_icon gap-15'>
+						{content}
+					</a>
+				</Link>
 			) : (
-				<button type='button' onClick={() => history.goBack()}>
-					{svg}
+				<button
+					type='button'
+					className='btn_icon col-bl flexi gap-15'
+					onClick={onClick ? onClick : router.back}>
+					{content}
 				</button>
 			)}
-			<h3 className='heading_med col-bl cap'> {text}</h3>
+			{text && <h3 className='heading_med col-bl cap'> {text}</h3>}
 		</div>
 	);
 };

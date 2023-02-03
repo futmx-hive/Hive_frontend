@@ -46,7 +46,7 @@ const Field = ({
 				}`}
 				data-addon={dataAddon}>
 				<input
-					className={`form_input br ${type === 'tel' ? 'tel' : ''} `}
+					className={`form_input br-1 ${type === 'tel' ? 'tel' : ''} `}
 					type={type}
 					placeholder={firstCap(placeholder)}
 					label={label}
@@ -74,7 +74,7 @@ const Field = ({
 		<React.Fragment>
 			<div className={`form_group ${error && isTouched ? ' error' : ''}`}>
 				{label && (
-					<label htmlFor={name} className='form_label open  cap weit-2 col-bl'>
+					<label htmlFor={name} className='form_label open  cap col-bl'>
 						{label}
 					</label>
 				)}

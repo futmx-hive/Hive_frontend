@@ -72,6 +72,10 @@
         color: $col-gray-dark;
     }
     &_input {
+        font-size: 1.4rem;
+        @include respond(gsm){
+            font-size: 16px;
+        }
         &_pack {
             border: 1px solid $col-gray-btn-l;
             overflow: hidden;
@@ -133,9 +137,8 @@
     }
     &_input_single,
     &_input {
-        padding: 1.3rem 1.4rem;
+        padding: 15px 1.4rem;
         resize: none;
-        font-size: 1.4rem;
         font-family: inherit;
 
         transition: 0.04s cubic-bezier(0.19, 1, 0.22, 1);
@@ -170,11 +173,15 @@
     }
 
     &_input_single {
-        padding: 1.5rem 1rem;
-        font-size: 2rem;
+        padding: .7em .6rem;
         color: $col-black;
+        font-weight: $weight-1;
+        @include respond(gsm){
+            padding: .5em .5em;
+        }
 
         &::placeholder {
+             opacity: 0;
             color: $col-bord-1;
         }
         &.error {
@@ -255,12 +262,12 @@
     &.open {
         padding-bottom: 5rem;
         .faq_btn {
-            transform: rotate(180deg);
+            transform: rotate(90deg);
         }
         .faq_header {
-            padding: 3rem;
-            padding-bottom: 2rem;
-            margin-bottom: 1rem;
+            // padding: 3rem;
+            // padding-bottom: 2rem;
+            // margin-bottom: 1rem;
 
             &::before {
                 transform: scale(1);
@@ -273,7 +280,7 @@
         padding: 0 3rem;
     }
     &_header {
-        padding: 1.5rem 0;
+        padding: 1.5rem ;
         cursor: pointer;
         position: relative;
 
@@ -291,6 +298,23 @@
         transition: 0.15s linear;
     }
 }
+
+.react-tel-input{
+    display: flex;
+    
+    .form_input{
+        font-family: inherit;
+     flex: 1;
+     border: 1px solid  $col-gray-btn-l !important;
+
+     &:focus{
+        border-color: $col-pri !important;
+        transition: $transition
+     }
+    }
+}
+
+
 
 
 

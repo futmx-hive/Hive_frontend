@@ -15,7 +15,7 @@
 }
 
 .bg-b {
-	background-color: $col-blue;
+	background-color: $col-black;
 }
 .bg-b-l {
 	background-color: $col-blue-light;
@@ -193,6 +193,11 @@
 }
 .space_bottom {
 	padding-bottom: 15rem;
+	min-height: 100vh;
+	@include respond(tab_port){
+		margin-top: 7rem;
+
+	}
 }
 
 .no_auto {
@@ -241,6 +246,9 @@
 .no-cap{
 	text-transform: initial;
 }
+.no-wrap{
+white-space: no-wrap;
+}
 .upp {
 	text-transform: uppercase;
 }
@@ -270,6 +278,9 @@
 	display: flex;
 	align-items: center;
 }
+.wrap{
+	flex-wrap: wrap;
+}
 .fixed {
 	position: fixed;
 	top: 0;
@@ -282,6 +293,7 @@
 .al-start{
 	align-items: start;
 }
+
 .al-s-end {
 	align-self: end !important;
 }
@@ -318,6 +330,9 @@
 .br {
 	border-radius: $border-rad;
 }
+.br-1{
+	border-radius: 8px;
+}
 .n-br {
 	border-radius: 0;
 }
@@ -333,13 +348,18 @@
 }
 .small-ci {
 	@extend .round;
-	width: 6.4rem;
-	height: 6.4rem;
+	width: 64px;
+	height: 64px;
 }
 .tiny-ci {
 	@extend .round;
-	width: 4.5rem;
-	height: 4.5rem;
+	width: 45px;
+	height: 45px;
+}
+.nano-ci {
+	@extend .round;
+	width: 35px;
+	height: 35px;
 }
 .dot {
 	@extend .round;
@@ -393,6 +413,12 @@
 	@extend .small_svg;
 	width: 22px;
 	height: 22px;
+
+	&_1{
+		@extend .small_svg;
+		width: 30px;
+		height: 30px;
+	}
 }
 .avg_svg {
 	width: 7rem;
@@ -408,6 +434,7 @@
 	padding: 5px 1rem;
 	border: 1px solid $col-blue;
 }
+
 .lag_svg,
 .small_svg,
 .med_svg,
@@ -419,8 +446,8 @@
 	height: 11rem;
 }
 .tiny_svg {
-	width: 1.5rem;
-	height: 1.5rem;
+	width: 2.4rem;
+	height: 2.4rem;
 	.lds-spinner{
 		width: inherit;
 		height: inherit;
@@ -456,7 +483,7 @@
 	gap: 2rem;
 }
 .hr {
-	--template: 1fr min-content 1fr;
+	--template: 1fr max-content 1fr;
 	color: $col-gray-light;
 	display: grid;
 	grid-template-columns:var(--template);

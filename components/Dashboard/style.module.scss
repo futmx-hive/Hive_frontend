@@ -1,3 +1,4 @@
+@import '../../styles/abstract/abstract';
 .comm{
     padding: 4rem 0;
 }
@@ -9,6 +10,15 @@
 }
 .balance{
     img{
-        height: 80%;
+        width: 100%;
+        display: block;
     }
+}
+.dash_left{
+    @include respond(gsm){
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
 }

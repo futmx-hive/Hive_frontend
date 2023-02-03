@@ -17,7 +17,7 @@
 }
 
 .lds-spinner.small div::after {
-	background-color: #f2f2f7;
+	background-color: green;
 }
 .lds-spinner div:after {
 	content: " ";

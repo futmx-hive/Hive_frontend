@@ -2,14 +2,18 @@
 	display: grid;
 	grid-template-columns: max-content 1fr;
 	height: 100vh;
-	overflow: hidden;
+
+	@include respond(tab_port){
+		display: block;
+	}
+	
 
 	&.auto{
 		grid-template-columns: initial;
 	}
 
 
-	& > *:not(.sidebar .backdrop) {
+	& > *:not(.sidebar , .backdrop) {
 		overflow-x: hidden;
 		position: relative;
 	}
@@ -20,6 +24,9 @@
 		height: 100vh;
 		&_small{
 			width: auto;
+		}
+		@include respond(gsm){
+			width: 71vw;
 		}
 	}
 }

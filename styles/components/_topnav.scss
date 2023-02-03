@@ -6,6 +6,15 @@
 	top: 0;
 	left: 0;
 	right: 0;
+	border-bottom: 2px solid hsl(211deg, 64%, 96%);
+	@include respond(gsm){
+		background-color: $col-pri;
+		position: fixed;
+		h1{
+
+			color: $col-white-1;
+		}
+	}
 
 	&_left {
 		a {

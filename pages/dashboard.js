@@ -1,25 +1,25 @@
 import BalanceShowcase from '@components/Dashboard/BalanceShowcase';
-import TableUserCommodities from '@components/Dashboard/TableUserCommodities';
+import TableUserCommodities from '@shared/Tables/TableUserCommodities';
 import WrapperTopCommodity from '@components/Dashboard/WrapperTopCommodity';
 import RecentTransactions from '@components/Shared/Transaction/RecentTransactions';
 import TxQuickActions from '@components/Shared/Transaction/TxQuickActions';
 import TopNav from '@components/Shared/UIelements/TopNav';
 import DashboardLayout from '@layout/DashboardLayout';
 import SpaceBottom from '@layout/SpaceBottom';
-import React from 'react';
+import _ from '../components/Dashboard/style.module.scss';
 
 function Dashboard() {
 	return (
 		<DashboardLayout>
 			<SpaceBottom>
 				<TopNav title={'dashboard'} />
-				<section>
-					<div className='container-lg con_5_2'>
+				<section className='mt-2'>
+					<div className={`container-lg con_5_2 ${_.dash_left}`}>
 						<BalanceShowcase />
 						<TxQuickActions />
 					</div>
 					<WrapperTopCommodity />
-					<div className='container-lg con_5_2'>
+					<div className={`container-lg con_5_2 ${_.dash_left}`}>
 						<TableUserCommodities />
 						<RecentTransactions />
 					</div>

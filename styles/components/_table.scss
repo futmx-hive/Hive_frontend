@@ -32,6 +32,9 @@ table {
 	th,
 	td {
 		padding: 1.5rem 2rem;
+		@include respond(tab_port){
+			padding: 1.5rem 1.3rem;
+		}
 		& > * {
 			color: $black;
 		}

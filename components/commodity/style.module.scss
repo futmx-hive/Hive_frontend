@@ -3,6 +3,13 @@
 .commodity_con{
     display: grid;
     gap: 3.4rem;
+
+    &:last-child{
+      margin-top: 3rem;
+    }
+    @include respond(gsm){
+      gap: 3rem;
+    }
 }
 
 .hr{
@@ -16,6 +23,9 @@
     padding: 2rem 0;
     display: grid;
     grid-template-columns: repeat(4,1fr);
+    @include respond(gsm){
+      grid-template-columns: repeat(3,1fr);
+    }
  & > div{
     display: grid;
 
@@ -31,6 +41,28 @@
   }
 }
 
-.comm_home{
-  
+
+
+.rec_tx_det{
+  li{
+    padding: 14px;
+
+    &:not(:last-child){
+      border-bottom: 1px solid $col-bord-1;
+    }
+  }
+}
+.details{
+  &_header{
+    @include respond(gsm){
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.7rem;
+    }
+  }
+  &_pkg{
+    @include respond(gsm){
+      padding: 2rem;
+    }
+  }
 }

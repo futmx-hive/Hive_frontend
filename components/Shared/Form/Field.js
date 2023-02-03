@@ -1,5 +1,5 @@
-import React, { Fragment, useMemo } from 'react';
-import UseToggle from '../../../hooks/UseToogle';
+import React, { Fragment, useMemo } from "react";
+import UseToggle from "../../../hooks/UseToogle";
 
 const Field = ({
 	autoFocus = false,
@@ -15,20 +15,20 @@ const Field = ({
 	handleChange,
 	badge,
 	supportingContent,
-	classes = 'grid_1_max',
+	classes = "grid_1_max",
 	fieldStyles = {},
 	showError = true,
 	value,
 	index = null,
-	dataAddon = '',
-	tempVal = '',
+	dataAddon = "",
+	tempVal = "",
 }) => {
 	const { isOpen: isTouched, open: setIsTouched } = UseToggle(false);
 	const sc = useMemo(() => supportingContent, [tempVal]);
 	const firstCap = (txt) => (txt ? txt.replace(/^\w/, (e) => e.toUpperCase()) : null);
 	const errorText = () =>
 		isTouched && error && showError ? (
-			<small style={{ marginTop: '7px', fontWeight: 500 }} className={`error small weit-1 col-r `}>
+			<small style={{ marginTop: "7px", fontWeight: 500 }} className={`error small weit-1 col-r `}>
 				{firstCap(error)}
 			</small>
 		) : null;
@@ -42,12 +42,14 @@ const Field = ({
 	const element = !typeOfField ? (
 		<Fragment>
 			<div
-				className={`pos-r ${!dataAddon ? 'no_addon' : ''}  ${
-					!!badge || !!supportingContent ? 'form_input_pack br grid_1_max' : classes
+				className={`pos-r ${!dataAddon ? "no_addon" : ""}  ${
+					!!badge || !!supportingContent ? "form_input_pack br-1 grid_1_max" : classes
 				}`}
-				data-addon={dataAddon}>
+				data-addon={dataAddon}
+				// font share
+			>
 				<input
-					className={`form_input br ${type === 'tel' ? 'tel' : ''} `}
+					className={`form_input br-1 ${type === "tel" ? "tel" : ""} `}
 					type={type}
 					placeholder={firstCap(placeholder)}
 					label={label}
@@ -59,15 +61,14 @@ const Field = ({
 					disabled={disabled}
 					name={name}
 					style={{
-						paddingLeft: dataAddon ? `${dataAddon.length + 2}ch` : '',
+						paddingLeft: dataAddon ? `${dataAddon.length + 2}ch` : "",
 						...fieldStyles,
 					}}
 				/>
 				{!!badge && (
 					<div
-						className={`form_input_badge center-flex upp weit-2 ${
-							error && isTouched ? 'error' : ''
-						}`}>
+						className={`form_input_badge center-flex upp weit-2 ${error && isTouched ? "error" : ""}`}
+					>
 						{badge}
 					</div>
 				)}
@@ -83,7 +84,7 @@ const Field = ({
 	) : (
 		<Fragment>
 			<textarea
-				className='form_input br'
+				className='form_input br-1'
 				type={type}
 				value={value}
 				placeholder={placeholder}
@@ -101,15 +102,15 @@ const Field = ({
 
 	return (
 		<React.Fragment>
-			<div className={`form_group ${error && isTouched ? ' error' : ''}`}>
+			<div className={`form_group ${error && isTouched ? " error" : ""}`}>
 				{label && (
-					<label htmlFor={name} className='form_label open  cap  col-bl'>
+					<label htmlFor={name} className='form_label open  cap '>
 						{label}
 					</label>
 				)}
 				{typeOfField ? errorText : null}
 				{!!supportingText && (
-					<small className='small col-gra-l' style={{ display: 'inline-block', marginBottom: '.5rem' }}>
+					<small className='small col-gra-l' style={{ display: "inline-block", marginBottom: ".5rem" }}>
 						{supportingText}
 					</small>
 				)}

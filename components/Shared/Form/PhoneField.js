@@ -1,15 +1,12 @@
-import React from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
-import UseToggle from '../../../hooks/UseToogle';
-import { UseCountries } from '../../../Services/common/common.queries';
-import localStore from '../../../Services/localStore';
+import UseToggle from '@hooks/UseToogle';
 import SmallLoader from '../SmallComponents/SmallLoader';
 
 const PhoneField = ({
 	autoFocus = true,
 	label,
-	onChange,
+	onChange = () => null,
 	c1,
 	values,
 	error,
@@ -19,9 +16,10 @@ const PhoneField = ({
 	id = '',
 }) => {
 	const { isOpen: touched, open: setTouched } = UseToggle(false);
-	const countryAbbr = localStore.getValueFromKey('country');
+	// const countryAbbr = localStore.getValueFromKey('country');
+	const countryAbbr = 'ng';
 	let cc;
-	const { data, isLoading } = UseCountries();
+	// const { data, isLoading } = UseCountries();
 	const getCountryAbbr = (dialCode) =>
 		data?.data?.countryDetailsList.find(({ phoneCode }) => phoneCode === dialCode);
 
@@ -43,38 +41,32 @@ const PhoneField = ({
 				gmtOffset,
 			},
 		};
-		localStore.setKey('country', abbreviation);
+		// localStore.setKey('country', abbreviation);
 		onChange(input);
 	};
-	if (isLoading)
-		return (
-			<div className='u-center col-gra-l'>
-				<SmallLoader scale={0.4} />
-			</div>
-		);
+	// if (isLoading)
+	// 	return (
+	// 		<div className='u-center col-gra-l'>
+	// 			<SmallLoader scale={0.4} />
+	// 		</div>
+	// 	);
 
-	if (customCode) {
-		cc = getCountryAbbr(customCode.slice(1))?.abbreviation.toLowerCase();
-	}
+	// if (customCode) {
+	// 	cc = getCountryAbbr(customCode.slice(1))?.abbreviation.toLowerCase();
+	// }
 
 	return (
 		<div className='form_group' id={id}>
-			<label htmlFor={'phone'} className={'form_label  cap weit-2 col-bl ' + c1}>
+			<label htmlFor={'phone'} className={'form_label  cap  col-bl ' + c1}>
 				{label ? label : 'enter your phone number'}
 			</label>
 
 			<PhoneInput
 				placeholder='enter your phone number'
-				country={cc ? cc : countryAbbr ? countryAbbr.toLowerCase() : 'ug'}
+				country={cc ? cc : countryAbbr ? countryAbbr.toLowerCase() : 'ng'}
 				// countryCodeEditable={false}
-				onlyCountries={
-					!isLoading
-						? data?.data?.countryDetailsList.map((e) => {
-								return e.abbreviation.toLowerCase();
-						  })
-						: []
-				}
-				disabled={isLoading || isSubmitting || disabled}
+				onlyCountries={['ng']}
+				// disabled={isLoading || isSubmitting || disabled}
 				onBlur={setTouched}
 				onChange={handleChange}
 				inputProps={{
@@ -85,7 +77,6 @@ const PhoneField = ({
 				inputClass='form_input'
 				value={values || ''}
 				inputStyle={{
-					fontFamily: "'Nunito'",
 					paddingTop: '2.3rem',
 					paddingBottom: '2.3rem',
 				}}
