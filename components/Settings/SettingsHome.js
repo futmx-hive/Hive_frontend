@@ -1,13 +1,13 @@
-import UseTabs from '@hooks/UseTabs';
-import { TabBtn, TabDropDown, TabPanel, Tabs } from '@sharedUi/Tabs';
-import Card from '@sharedUi/Card';
-import _ from './style.module.scss';
-import FormProfile from './Forms/FormProfile';
-import BankAndCards from './BankAndCards';
-import { useEffect } from 'react';
-import Preferences from './Preferences';
+import UseTabs from "@hooks/UseTabs";
+import { TabBtn, TabDropDown, TabPanel, Tabs } from "@sharedUi/Tabs";
+import Card from "@sharedUi/Card";
+import _ from "./style.module.scss";
+import FormProfile from "./Forms/FormProfile";
+import BankAndCards from "./BankAndCards";
+import { useEffect } from "react";
+import Preferences from "./Preferences";
 
-const tabNames = ['profile', 'Bank and cards', 'preferences'];
+const tabNames = ["profile", "Bank and cards", "preferences"];
 
 function SettingsHome({ index, tabspathData }) {
 	const [active, setActive] = UseTabs(index);
@@ -19,7 +19,7 @@ function SettingsHome({ index, tabspathData }) {
 					<Tabs classes='' value={active} onChange={setActive} max={4}>
 						{tabNames.map((e, i) => (
 							<TabBtn link={`${tabspathData[i]}`} key={i}>
-								{e}{' '}
+								{e}{" "}
 							</TabBtn>
 						))}
 					</Tabs>

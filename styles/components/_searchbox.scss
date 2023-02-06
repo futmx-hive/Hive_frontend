@@ -4,6 +4,7 @@
 	overflow: hidden;
 	position: relative;
 
+
 	&.searc svg {
 		position: absolute;
 		top: 50%;
@@ -53,14 +54,21 @@
 }
 
 .search {
+	&.full {
+		flex: 1;
+	}
+	&.full  	&_input{
+	 max-width: 100%;
+	}
+
 	&_input {
 		max-width: 30rem;
 		svg {
 			order: -1;
-			filter: grayscale(0.7);
+			filter: grayscale(0);
 		}
 		& > input[type="text"] {
-			padding: 0.7em;
+			padding: 1em;
 			font-size: 1.6rem;
 			&,
 			&:hover {

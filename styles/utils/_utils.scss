@@ -24,6 +24,9 @@
 	background-color: $col-yell;
 }
 
+.hidden{
+	overflow: hidden;
+}
 .bg-g-1 {
 	background-color: $col-gray-bg;
 }
@@ -61,6 +64,9 @@
 }
 .bg-y-l{
 	background-color: $col-yell-light;
+}
+.bg-opa{
+	background-color:  rgba($col-black, 0.4);
 }
 // ! BORDER
 .bord-g-1 {
@@ -158,6 +164,15 @@
 .mt-m {
 	margin-top: 5px;
 }
+
+
+.backdrop {
+	position: fixed;
+	z-index: 6;
+	inset: 0 0 0 0;
+	background-color: rgba($col-black, 0.2);
+}
+
 @for $var from 1 through 5 {
 	.m-#{$var} {
 		margin: $var * 1rem;
@@ -190,6 +205,9 @@
 	.pb-#{$var} {
 		padding-bottom: $var * 1rem;
 	}
+	.z-#{$var}{
+		z-index: $var;
+	}
 }
 .space_bottom {
 	padding-bottom: 15rem;
@@ -199,6 +217,7 @@
 
 	}
 }
+
 
 .no_auto {
 	margin: initial;
@@ -223,12 +242,7 @@
 	z-index: 1;
 }
 
-.backdrop {
-	position: fixed;
-	z-index: 6;
-	inset: 0 0 0 0;
-	background-color: rgba($col-black, 0.2);
-}
+
 // ! TEXT FORMATTING
 .bold {
 	font-weight: bold;
@@ -274,6 +288,9 @@ white-space: no-wrap;
 .flex{
 	display: flex;
 }
+.flex-1{
+	flex: 1;
+}
 .flex-center {
 	display: flex;
 	align-items: center;
@@ -286,6 +303,10 @@ white-space: no-wrap;
 	top: 0;
 	left: 0;
 	right: 0;
+}
+.abs-fill{
+	position: absolute;
+	inset: 0;
 }
 .js-center {
 	justify-content: center;
@@ -392,7 +413,7 @@ white-space: no-wrap;
 }
 .pos-st {
 	position: sticky;
-	top: 8rem;
+	top: 10rem;
 	left: 0;
 }
 .self-center {
@@ -518,7 +539,9 @@ white-space: no-wrap;
 		right: 0;
 	}
 }
-
+.cur-p{
+	cursor: pointer;
+}
 .thin {
 	font-weight: $weight-1 !important;
 }

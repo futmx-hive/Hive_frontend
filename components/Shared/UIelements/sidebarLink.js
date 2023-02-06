@@ -1,10 +1,10 @@
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { scaleUp } from '@animations/index';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { scaleUp } from "@animations/index";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-let sprite = '/svg/sprite/sprite1.svg';
+let sprite = "/svg/sprite/sprite1.svg";
 
 const SidebarLink = ({ title, icon, link, count, onClick = () => null, isOpen }) => {
 	const { pathname } = useRouter();
@@ -17,17 +17,18 @@ const SidebarLink = ({ title, icon, link, count, onClick = () => null, isOpen })
 			>
 				<a
 					className={`sidebar_link  cap flexi br ${
-						new RegExp(icon, 'gi').test(pathname) ? 'active' : ''
+						new RegExp(icon || link, "gi").test(pathname) ? "active" : ""
 					}`}
 					style={
 						!isOpen
 							? {
-									paddingRight: '2rem',
-									paddingLeft: '2rem',
+									paddingRight: "2rem",
+									paddingLeft: "2rem",
 							  }
 							: null
-					}>
-					<svg className={`${isOpen ? 'small_svg mr-1' : 'small_svg_1'} `}>
+					}
+				>
+					<svg className={`${isOpen ? "small_svg mr-1" : "small_svg_1"} `}>
 						<use xlinkHref={sprite + `#${icon}`} />
 					</svg>
 					{isOpen && (
@@ -36,9 +37,10 @@ const SidebarLink = ({ title, icon, link, count, onClick = () => null, isOpen })
 							{count ? (
 								<motion.span
 									variants={scaleUp}
-									initial={'initial'}
-									animate={'final'}
-									className='bg-or col-w dot center-flex smaller weit-3'>
+									initial={"initial"}
+									animate={"final"}
+									className='bg-or col-w dot center-flex smaller weit-3'
+								>
 									{count}
 								</motion.span>
 							) : null}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo 2');
+@import url('https://fonts.googleapis.com/css?family=IBM Plex Sans');
 *,
 *::before,
 *::after {
@@ -20,7 +20,8 @@ html {
 }
 
 body {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	 font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	// font-family: 'IBM Plex Sans';
 	min-height: 100vh;
 	font-size: 1.4rem;
 	font-weight: 400;

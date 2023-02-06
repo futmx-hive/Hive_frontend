@@ -1,4 +1,5 @@
 import axios from "axios";
+import Papa from "papaparse";
 
 const readFile = (file, regex, binary = false) =>
 	new Promise((res, rej) => {
@@ -138,6 +139,42 @@ const compressImage = async (dataURI) => {
 	return newdataURI;
 };
 
+const papaConfig = {
+	delimiter: "", // auto-detect
+	newline: "", // auto-detect
+	quoteChar: '"',
+	escapeChar: '"',
+	header: true,
+	dynamicTyping: false,
+	preview: 0,
+	encoding: "",
+	worker: false,
+	comments: false,
+	download: false,
+	skipEmptyLines: true,
+	delimitersToGuess: [",", "\t", "|", ";", Papa.RECORD_SEP, Papa.UNIT_SEP],
+};
+const convertCSVFileToJSON = async (file, options = {}) => {
+	return new Promise((res, rej) => {
+		Papa.parse(file, {
+			...papaConfig,
+			header: true,
+			...options,
+			complete: (data) => res(data.data),
+		});
+	});
+};
+const years = [];
+
+const thisYear = new Date().getFullYear();
+
+for (let i = thisYear; i > thisYear - 8; i--) {
+	years.push({
+		label: i.toString(),
+		value: i.toString(),
+	});
+}
+
 export {
 	compressImage,
 	parseImagesB64,
@@ -152,4 +189,6 @@ export {
 	getInitials,
 	parseDateToNum,
 	parseNumToDate,
+	convertCSVFileToJSON,
+	years,
 };

@@ -3,6 +3,7 @@ import { NativeTypes } from "react-dnd-html5-backend";
 import { useDrop } from "react-dnd";
 import UseToggle from "@hooks/UseToogle";
 import SmallLoader from "../SmallComponents/SmallLoader";
+import { convertCSVFileToJSON, parseImagesB64 } from "@utils/index";
 
 const ImageUploader = ({
 	small,
@@ -44,17 +45,13 @@ const ImageUploader = ({
 	}));
 
 	const getfiles = async () => {
+		if (!files.length) return stopLoading();
 		const res = await process(files, type, count, maxSize);
 		stopLoading();
-		// console.log ({res});
-		if (!res.success) setError(res.message);
-		else {
-			const fileArr = res.files.map((e) => ({
-				shouldCompress: true,
-				dataURI: e,
-			}));
-			onChange(fileArr);
-		}
+		console.log({ res });
+		if (!res.success) return setError(res.message);
+
+		onChange(res.data);
 	};
 
 	useEffect(() => {
@@ -154,10 +151,15 @@ async function process(files, type, count, size) {
 			try {
 				if (typeof files[0] === "string") return;
 
-				// let images = await parseImagesB64(files, map["image"], count, size);
+				let images = await parseImagesB64(files, map["image"], count, size);
+				const fileArr = images.map((e) => ({
+					shouldCompress: true,
+					dataURI: e,
+				}));
+
 				return {
 					success: true,
-					files: images,
+					data: fileArr,
 				};
 			} catch (error) {
 				// console.log ({error});
@@ -168,8 +170,31 @@ async function process(files, type, count, size) {
 				};
 			}
 		}
+		case "csv": {
+			try {
+				if (typeof files[0] === "string") return;
+
+				let data = await convertCSVFileToJSON(files[0]);
+
+				return {
+					success: true,
+					data: data,
+				};
+			} catch (error) {
+				// console.log ({error});
+				return {
+					success: false,
+					files: null,
+					message: error.message,
+				};
+			}
+		}
+
 		default:
-			return null;
+			return {
+				success: false,
+				message: " oopsie invalid file expected a " + type + "file",
+			};
 	}
 }
 

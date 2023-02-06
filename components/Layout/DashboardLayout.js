@@ -18,11 +18,11 @@ const DashboardLayout = ({ children }) => {
 		},
 		{
 			title: "assignees",
-			icon: "commodity",
+			icon: "assignees",
 		},
 		{
 			title: "projects",
-			icon: "portfolio",
+			link: "projects",
 		},
 		{
 			title: "settings",

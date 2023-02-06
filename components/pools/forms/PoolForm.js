@@ -3,19 +3,26 @@ import Select2 from "@form-components/Select2";
 import CSVUpoloader from "@form-components/CSVUploader";
 import OnAndOffBtn from "@shared/SmallComponents/OnAndOffBtn";
 import Card from "@sharedUi/Card";
-import AssignmentBoard from "@components/Project/AssignmentBoard";
+import AssignmentBoard from "@components/Project/components/AssignmentBoard";
 import CtaButton from "@sharedUi/CtaButton";
+import { years } from "@utils/index";
+import { useRouter } from "next/router";
+import { useState } from "react";
+
 function PoolForm() {
+	const [students, setStudents] = useState([]);
+	const router = useRouter();
 	return (
 		<div className='container'>
 			<Card>
 				<div className='form_pkg p-5'>
 					<div className='form_grid_2'>
-						<Field label={"year"} type='year' />
+						<Select2 id={"x"} label={"select year"} options={years} />
 						<Field label={"creator"} type='string' />
 					</div>
 					<Select2
 						label={"supervisors"}
+						id={"y"}
 						placeholder='select supervisors'
 						options={[
 							{
@@ -36,11 +43,21 @@ function PoolForm() {
 							},
 						]}
 					/>
-					<Field typeOfField={"textarea"} label={"description"} />
+					<Field
+						typeOfField={"textarea"}
+						label={"description"}
+						placeholder={"briefly describe thie data in the pool"}
+					/>
 					<div className='mt-2'>
-						<CSVUpoloader />
+						<CSVUpoloader
+							type='csv'
+							onChange={(data) => {
+								console.log(data);
+								setStudents(data);
+							}}
+						/>
 					</div>
-					<AssignmentBoard />
+					{students.length && <AssignmentBoard students={students} />}
 					<div className='flexi gap-25 mt-4'>
 						<OnAndOffBtn name={"lock"} />
 						<label htmlFor='lock' className='heading_md col-gra-l'>
@@ -49,8 +66,8 @@ function PoolForm() {
 						</label>
 					</div>
 					<div className='u-center p-3 center-flex'>
-						<CtaButton classes='btn_wide_1' loading disabled>
-							create pool
+						<CtaButton classes='btn_wide_1' onClick={() => router.push("/pools")}>
+							{router.query.id ? "update pool" : "	create pool"}
 						</CtaButton>
 					</div>
 				</div>

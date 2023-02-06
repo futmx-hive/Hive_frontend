@@ -1,7 +1,9 @@
 import HideOnMobile from "@layout/HideOnMobile";
+import { useRouter } from "next/router";
 import React from "react";
 
 function TrowTx() {
+	const router = useRouter();
 	return (
 		<tr className='pos-r'>
 			<td>
@@ -31,7 +33,13 @@ function TrowTx() {
 				<span className='badge_bg badge_gr upp'> active</span>
 			</td>
 			<td className='col-pri'>
-				<button className='btn_small btn_bord col-pri  weit-1 br'> inspect</button>
+				<button
+					className='btn_small btn_bord col-pri  weit-1 br'
+					onClick={() => router.push("/pools/2023/undergraduate")}
+				>
+					{" "}
+					observe
+				</button>
 			</td>
 		</tr>
 	);

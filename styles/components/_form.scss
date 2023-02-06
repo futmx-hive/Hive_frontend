@@ -346,3 +346,21 @@
 .form_input__dropdown-indicator {
     transform: scale(1.5);
 }
+
+
+
+.filter{
+    &_select{
+
+        & > *{
+            flex: 1;
+        }
+    }
+
+    &_sub{
+        &_pack{
+            align-items: start;
+        }
+    }
+
+}

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Baloo 2");
+@import url("https://fonts.googleapis.com/css?family=IBM Plex Sans");
 @-webkit-keyframes fadein {
   from {
     opacity: 0;
@@ -333,6 +333,10 @@ input:focus {
   background-color: #e3c204;
 }
 
+.hidden {
+  overflow: hidden;
+}
+
 .bg-g-1 {
   background-color: #f2f2f2;
 }
@@ -379,6 +383,10 @@ input:focus {
 
 .bg-y-l {
   background-color: #ECFFC3;
+}
+
+.bg-opa {
+  background-color: rgba(24, 30, 25, 0.4);
 }
 
 .bord-g-1 {
@@ -497,6 +505,13 @@ input:focus {
   margin-top: 5px;
 }
 
+.backdrop {
+  position: fixed;
+  z-index: 6;
+  inset: 0 0 0 0;
+  background-color: rgba(24, 30, 25, 0.2);
+}
+
 .m-1 {
   margin: 1rem;
 }
@@ -536,6 +551,10 @@ input:focus {
 
 .pb-1 {
   padding-bottom: 1rem;
+}
+
+.z-1 {
+  z-index: 1;
 }
 
 .m-2 {
@@ -579,6 +598,10 @@ input:focus {
   padding-bottom: 2rem;
 }
 
+.z-2 {
+  z-index: 2;
+}
+
 .m-3 {
   margin: 3rem;
 }
@@ -618,6 +641,10 @@ input:focus {
 
 .pb-3 {
   padding-bottom: 3rem;
+}
+
+.z-3 {
+  z-index: 3;
 }
 
 .m-4 {
@@ -661,6 +688,10 @@ input:focus {
   padding-bottom: 4rem;
 }
 
+.z-4 {
+  z-index: 4;
+}
+
 .m-5 {
   margin: 5rem;
 }
@@ -702,6 +733,10 @@ input:focus {
   padding-bottom: 5rem;
 }
 
+.z-5 {
+  z-index: 5;
+}
+
 .space_bottom {
   padding-bottom: 15rem;
   min-height: 100vh;
@@ -738,13 +773,6 @@ input:focus {
 
 .topup {
   z-index: 1;
-}
-
-.backdrop {
-  position: fixed;
-  z-index: 6;
-  inset: 0 0 0 0;
-  background-color: rgba(24, 30, 25, 0.2);
 }
 
 .bold {
@@ -803,6 +831,10 @@ input:focus {
   display: flex;
 }
 
+.flex-1 {
+  flex: 1;
+}
+
 .flex-center {
   display: flex;
   align-items: center;
@@ -817,6 +849,11 @@ input:focus {
   top: 0;
   left: 0;
   right: 0;
+}
+
+.abs-fill {
+  position: absolute;
+  inset: 0;
 }
 
 .js-center {
@@ -935,7 +972,7 @@ input:focus {
 .pos-st {
   position: -webkit-sticky;
   position: sticky;
-  top: 8rem;
+  top: 10rem;
   left: 0;
 }
 
@@ -1070,6 +1107,10 @@ input:focus {
   top: 80%;
   left: 0;
   right: 0;
+}
+
+.cur-p {
+  cursor: pointer;
 }
 
 .thin {
@@ -1218,12 +1259,19 @@ input:focus {
   gap: var(--gap);
 }
 
+.con_2_4 {
+  --gap: 6rem;
+  grid-template-columns: 1.5fr 4fr;
+  gap: var(--gap);
+}
+
 .con_4_1_1 {
   --gap: 2.5rem;
   grid-template-columns: 4fr 1fr 1fr;
   gap: var(--gap);
 }
 
+.con_2_4,
 .con_4_1_1,
 .con_4,
 .con_1_4,
@@ -1237,15 +1285,15 @@ input:focus {
 
 .con_4_1 {
   --gap: 2rem;
-  grid-template-columns: 4.45fr 1.5fr;
+  grid-template-columns: 4.2fr 1.5fr;
   gap: var(--gap);
 }
 
 .con_5_2 {
-  --gap: 2rem;
+  --gap: 4rem;
   --a: 380px;
   --b: 380px;
-  grid-template-columns: minmax(var(--a), 5fr) minmax(var(--b), 1.9fr);
+  grid-template-columns: minmax(var(--a), 5fr) minmax(var(--b), 2.1fr);
   gap: var(--gap);
 }
 @media (max-width: 31.25em) {
@@ -2328,6 +2376,13 @@ button {
   transform: scale(1.5);
 }
 
+.filter_select > * {
+  flex: 1;
+}
+.filter_sub_pack {
+  align-items: start;
+}
+
 .searchbox {
   display: grid;
   grid-template-columns: -webkit-max-content -webkit-max-content;
@@ -2391,15 +2446,21 @@ button {
   padding-right: 1.4rem;
 }
 
+.search.full {
+  flex: 1;
+}
+.search.full .search_input {
+  max-width: 100%;
+}
 .search_input {
   max-width: 30rem;
 }
 .search_input svg {
   order: -1;
-  filter: grayscale(0.7);
+  filter: grayscale(0);
 }
 .search_input > input[type=text] {
-  padding: 0.7em;
+  padding: 1em;
   font-size: 1.6rem;
   flex: 1;
 }
@@ -2867,7 +2928,7 @@ table {
   width: 100%;
 }
 table tr {
-  border-bottom: 1px solid hsl(0deg, 0%, 86%);
+  border-bottom: 1px solid #e6eff9;
 }
 table th,
 table td {

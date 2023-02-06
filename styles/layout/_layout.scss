@@ -90,11 +90,18 @@ $cons: 833 718 675 583 752;
     grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
     gap: var(--gap);
 }
+
+.con_2_4 {
+    --gap: 6rem;
+    grid-template-columns: 1.5fr 4fr;
+    gap: var(--gap);
+}
 .con_4_1_1 {
     --gap: 2.5rem;
     grid-template-columns: 4fr 1fr 1fr;
     gap: var(--gap);
 }
+.con_2_4,
 .con_4_1_1,
 .con_4,
 .con_1_4,
@@ -107,14 +114,14 @@ $cons: 833 718 675 583 752;
 }
 .con_4_1 {
     --gap: 2rem;
-    grid-template-columns: 4.45fr 1.5fr;
+    grid-template-columns: 4.2fr 1.5fr;
     gap: var(--gap);
 }
 .con_5_2 {
-    --gap: 2rem;
+    --gap: 4rem;
     --a: 380px;
     --b: 380px;
-    grid-template-columns: minmax(var(--a),5fr)  minmax(var(--b) ,1.9fr);
+    grid-template-columns: minmax(var(--a),5fr)  minmax(var(--b) ,2.1fr);
     gap: var(--gap);
     @include respond(gsm){
         display: block;

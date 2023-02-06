@@ -1,5 +1,5 @@
-import HideOnMobile from '@layout/HideOnMobile';
-import _ from '@sharedUi/UserCard.module.scss';
+import HideOnMobile from "@layout/HideOnMobile";
+import _ from "@sharedUi/UserCard.module.scss";
 export default function UserCard() {
 	return (
 		<div className='flexi gap-25'>
@@ -11,9 +11,9 @@ export default function UserCard() {
 			</span>
 			<HideOnMobile>
 				<article className='user_card flexi gap-15'>
-					<div className='tiny-ci center-grid upp heading_small bg-pri col-w'>jw</div>
+					<div className='tiny-ci center-grid upp heading_small bg-r col-w'>MM</div>
 
-					<h5 className='heading_small cap'> john winsnow</h5>
+					<h5 className='heading_small cap'> Mahmud Maryam</h5>
 
 					<button>
 						<svg className='tiny_svg'>

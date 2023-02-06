@@ -12,6 +12,7 @@ const Faq = ({
 	initialIsOpen = false,
 	containerClasses = "",
 	openClasses = "",
+	titleClasses = "",
 }) => {
 	const { isOpen, toogle } = UseToogle(initialIsOpen);
 	return (
@@ -21,7 +22,7 @@ const Faq = ({
 			}`}
 		>
 			<div onClick={toogle} className={`faq_header sp-btw flexi `}>
-				{title ? <h4 className='form_heading'>{title}</h4> : Component}
+				{title ? <h4 className={`form_heading ${titleClasses}`}>{title}</h4> : Component}
 				<div>{!locked && <Icon id={"#rarr"} classes={`small_svg faq_btn  `} />}</div>
 			</div>
 

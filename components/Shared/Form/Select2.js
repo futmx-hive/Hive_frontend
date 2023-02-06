@@ -1,17 +1,17 @@
-import React from 'react';
-import UseToggle from '../../../hooks/UseToogle';
-import Select, { components } from 'react-select';
-import SmallLoader from '../SmallComponents/SmallLoader';
+import React from "react";
+import UseToggle from "../../../hooks/UseToogle";
+import Select, { components } from "react-select";
+import SmallLoader from "../SmallComponents/SmallLoader";
 
 const style = {
 	multiValue: (styles, { data }) => {
 		return {
 			...styles,
-			backgroundColor: '#f0f0f0',
-			border: '1px solid #e5e5e5',
-			padding: '.4rem .4rem .4rem .9rem',
-			borderRadius: '100px',
-			fontSize: '1.4rem',
+			backgroundColor: "#f0f0f0",
+			border: "1px solid #e5e5e5",
+			padding: ".4rem .4rem .4rem .9rem",
+			borderRadius: "100px",
+			fontSize: "1.4rem",
 		};
 	},
 	multiValueLabel: (styles, { data }) => ({
@@ -20,16 +20,16 @@ const style = {
 	}),
 	multiValueRemove: (styles, { data }) => ({
 		...styles,
-		borderRadius: '50%',
+		borderRadius: "50%",
 		marginLeft: 5,
-		backgroundColor: 'hsl(0, 0%, 47%)',
-		color: 'white',
-		cursor: 'pointer',
-		':hover': {},
+		backgroundColor: "hsl(0, 0%, 47%)",
+		color: "white",
+		cursor: "pointer",
+		":hover": {},
 	}),
 	option: (base, { data }) => ({
 		...base,
-		color: '#001e3d',
+		color: "#001e3d",
 	}),
 };
 
@@ -57,12 +57,12 @@ const Select2 = ({
 	isLoading = false,
 	isMulti = false,
 	components = {},
-	supportingText = '',
+	supportingText = "",
 }) => {
 	const { isOpen: isTouched, open: setIsTouched } = UseToggle(false);
 	const errorText = () =>
 		isTouched && !!error && showError ? (
-			<small style={{ marginTop: '7px', fontWeight: 500 }} className={`error small weit-1 col-r `}>
+			<small style={{ marginTop: "7px", fontWeight: 500 }} className={`error small weit-1 col-r `}>
 				{error}
 			</small>
 		) : null;
@@ -82,7 +82,7 @@ const Select2 = ({
 				</label>
 			)}
 			{!!supportingText && (
-				<small className='small col-gra-l' style={{ display: 'inline-block', marginBottom: '.5rem' }}>
+				<small className='small col-gra-l' style={{ display: "inline-block", marginBottom: ".5rem" }}>
 					{supportingText}
 				</small>
 			)}
@@ -103,7 +103,7 @@ const Select2 = ({
 				}}
 				isMulti={isMulti}
 				placeholder={placeholder}
-				classNamePrefix={'form_input'}
+				classNamePrefix={"form_input"}
 				theme={(theme) => ({
 					...theme,
 					borderRadius: 8,
@@ -114,14 +114,14 @@ const Select2 = ({
 					control(base, chunk) {
 						return {
 							...base,
-							boxShadow: '0',
-							border: isTouched && !!error ? '2px solid #ffc7c7' : '1px solid #dbdbdb',
-							':hover': {
-								border: '1px solid #166A23',
+							boxShadow: "0",
+							border: isTouched && !!error ? "2px solid #ffc7c7" : "1px solid #dbdbdb",
+							":hover": {
+								border: "1px solid #8ABCFF;",
 							},
-							':focus': {
-								...base[':focus'],
-								border: isTouched && !!error ? '1px solid #ffc7c7' : '1px solid #0069cc',
+							":focus": {
+								...base[":focus"],
+								border: isTouched && !!error ? "1px solid #ffc7c7" : "1px solid #0069cc",
 								boxShadow: 0,
 							},
 						};

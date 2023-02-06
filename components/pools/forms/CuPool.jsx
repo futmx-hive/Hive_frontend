@@ -2,10 +2,10 @@ import TopNav from "@sharedUi/TopNav";
 import React from "react";
 import PoolForm from "./PoolForm";
 
-function CrudPool() {
+function CrudPool({ title = "create pool" }) {
 	return (
 		<>
-			<TopNav title={"create pool"} />
+			<TopNav title={title} />
 			<PoolForm />
 		</>
 	);

@@ -52,8 +52,8 @@ const Sidebar = ({ data }) => {
 				{/* {width} */}
 				<div className='sidebar_base u-center'>
 					<div className=' grid_txt_2 br'>
-						<button className='btn_large btn_white col-pri tablet'>buy</button>
-						<button className='btn_large btn_bord col-w-1 tablet'>sell</button>
+						{/* <button className='btn_large btn_white col-pri tablet'>buy</button>
+						<button className='btn_large btn_bord col-w-1 tablet'>sell</button> */}
 					</div>
 				</div>
 			</motion.div>
