@@ -25,6 +25,7 @@
   "devDependencies": {
     "eslint": "8.18.0",
     "eslint-config-next": "12.2.0",
+    "js-base64": "^3.7.4",
     "sass": "^1.53.0"
   }
 }

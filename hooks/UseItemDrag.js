@@ -1,21 +1,21 @@
 import { useDrag } from "react-dnd";
 
 export const itemTypes = {
-	STUDENT: "student",
+  STUDENT: "student",
 };
 
 export default function UseItemDrag(item) {
-	const [_, drag] = useDrag(() => ({
-		type: item.type,
-		end() {
-			console.log("end", _);
-		},
-		collect(monitor) {
-			return {
-				isDragging: !!monitor.isDragging(),
-			};
-		},
-	}));
+  const [_, drag] = useDrag(() => ({
+    type: item.type,
+    end() {
+      console.log("end", _);
+    },
+    collect(monitor) {
+      return {
+        isDragging: !!monitor.isDragging(),
+      };
+    },
+  }));
 
-	return { drag, ..._ };
+  return { drag, ..._ };
 }
