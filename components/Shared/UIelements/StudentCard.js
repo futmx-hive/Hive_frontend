@@ -3,11 +3,17 @@ import UseItemDrag, { itemTypes } from "@hooks/UseItemDrag";
 import React from "react";
 
 function StudentCard({ name, matricNo }) {
-	const { drag } = UseItemDrag({ type: itemTypes.STUDENT });
+	const { drag, isDragging } = UseItemDrag({ type: itemTypes.STUDENT });
 
 	name = name || faker.name.fullName();
 	return (
-		<div ref={drag} className='flexi gap-15 bord-g-1 tablet p-1 cur-p'>
+		<div
+			ref={drag}
+			className='flexi gap-15 bord-g-1 tablet p-1 cur-p'
+			style={{
+				opacity: isDragging ? 0 : 1,
+			}}
+		>
 			<div className='tiny-ci upp heading_small  col-w center-flex hidden'>
 				<img
 					src={`https://api.dicebear.com/5.x/initials/svg?seed=${name}&backgroundType=gradientLinear,solid`}
