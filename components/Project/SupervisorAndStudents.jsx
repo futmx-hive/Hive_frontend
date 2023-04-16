@@ -7,7 +7,7 @@ function SupervisorAndStudents({ supervisor = {}, students = [] }) {
 
   const { drop, isOver } = UseItemDrop({ type: itemTypes.STUDENT });
 
-  console.log("Is Over? ", isOver);
+  console.log("Is Over? ", supervisor);
 
   const heading = (
     <h5 className="heading_med weit-1 col-g cap">{supervisor.name}</h5>

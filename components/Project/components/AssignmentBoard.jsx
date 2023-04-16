@@ -13,7 +13,7 @@ function AssignmentBoard({ students, supervisors, handleAssignees }) {
   const [assignees, setAssignees] = useState([1, 2, 3]);
   const [error, setError] = useState("");
   const stringifiedStuds = JSON.stringify(students);
-  const names = supervisors.map((supervisor) => supervisor.value);
+  const names = supervisors.map((supervisor) => supervisor.label);
   useEffect(() => {
     try {
       const assign = randomlyAssign(students, names);

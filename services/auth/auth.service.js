@@ -5,7 +5,7 @@ import localStore from "../localStore";
 // import base64 from 'base-64';
 
 class Auth {
-  static async Login(body) {
+  static async login(body) {
     const url = `${base.url}auth/passwordless`;
     return axios.post(
       url,
@@ -20,8 +20,8 @@ class Auth {
   }
 
   static async verifyOtp(body) {
-    const url = `${base.url}/auth/verifyotp`;
-    const response = axios.post(
+    const url = `${base.url}auth/verifyotp`;
+    const response = await axios.post(
       url,
       {
         ...body,
@@ -31,9 +31,6 @@ class Auth {
       }
     );
 
-    if (response?.success) {
-      localStore.setKey("token", response.token);
-    }
     return response;
   }
 }

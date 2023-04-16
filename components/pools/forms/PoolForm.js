@@ -9,6 +9,7 @@ import { years } from "@utils/index";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Pool from "services/pool/pool.service";
+import { toast } from "react-hot-toast";
 
 function PoolForm() {
   const [students, setStudents] = useState([]);
@@ -19,23 +20,12 @@ function PoolForm() {
   const supervisors = [
     {
       label: "Dr Abdulazzez Damilola",
-      value: "Dr Abdulazzez Damilola",
+      value: "63e2076939bcd8fd1aa9f861",
     },
-    {
-      label: "Mrs Bilikisu",
-      value: "Mrs Bilikisu",
-    },
-    {
-      label: "Dr Zubairu",
-      value: "Dr Zubairu",
-    },
+
     {
       label: "Mr Calistus",
-      value: "Mr Calistus",
-    },
-    {
-      label: "Dr Cosmos",
-      value: "Dr Cosmos",
+      value: "63e1c436c7c963eb21d382b2",
     },
   ];
 
@@ -75,18 +65,91 @@ function PoolForm() {
     setLoading(true);
     const PoolService = Pool;
 
+    // const data = {
+    //   year: form.year,
+    //   creator: form.creator,
+    //   create_non_existent_students: true,
+    //   assignees: form.assignees,
+    //   description: form.description,
+    //   students_type: form.studentType,
+    // };
+
     const data = {
       year: form.year,
       creator: form.creator,
       create_non_existent_students: true,
-      assignees: form.assignees,
+      assignees: [
+        {
+          supervisor_id: "63e2076939bcd8fd1aa9f861",
+          students: [
+            {
+              matric_no: "2016/2/56789CI",
+              exam_num: "m1600544",
+              first_name: "Sam",
+              last_name: "smith ",
+            },
+            {
+              matric_no: "2016/8/23489CT",
+              exam_num: "m1823035",
+              first_name: "Abel",
+              last_name: "Okpoh ",
+            },
+            {
+              matric_no: "2016/1/28672CI",
+              exam_num: "m1099238",
+              first_name: "Angelina",
+              last_name: "Duweiwei ",
+            },
+            {
+              matric_no: "2016/4/67908ct",
+              exam_num: "m1836289",
+              first_name: "Ada",
+              last_name: "Appah ",
+            },
+          ],
+        },
+        {
+          supervisor_id: "63e1c436c7c963eb21d382b2",
+          students: [
+            {
+              matric_no: "2017/3/88935CI",
+              exam_num: "m0966241",
+              first_name: "John",
+              last_name: "Bobo ",
+            },
+            {
+              matric_no: "2016/2/56719CI",
+              exam_num: "m0925199",
+              first_name: "Salman",
+              last_name: "Amechi ",
+            },
+            {
+              matric_no: "2016/1/36109CT",
+              exam_num: "m1098352",
+              first_name: "Bilkiss",
+              last_name: "Chiroma ",
+            },
+          ],
+        },
+      ],
+      description: form.description,
       students_type: form.studentType,
     };
-    const sendRequest = PoolService.createPool(data);
-    if (sendRequest?.success) {
-      console.log("Pool has been created successfully");
-    } else {
-      console.log("An error occurred. Please try again");
+
+    try {
+      const response = await PoolService.createPool(data);
+      const sendRequest = response.data;
+      if (sendRequest?.success) {
+        console.log("Pool has been created successfully");
+        toast.success(`Pool has been created successfully`);
+        router.push("/pools");
+      } else {
+        console.log("An error occurred. Please try again");
+        toast.error(`An error occurred. Please try again`);
+      }
+    } catch (error) {
+      console.log("An error occurred. Please try again. ", error);
+      toast.error(`An error occurred. Please try again`);
     }
     setLoading(false);
   };
