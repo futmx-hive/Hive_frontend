@@ -14,16 +14,12 @@ const base = {
     return {
       ...this.basicH,
       Authorization: `Bearer ${this.getToken()}`,
-      DeviceId: localStore.getValueFromKey("dev_intel"),
     };
   },
   authH({ entity, id = "" }) {
     return {
       ...this.basicH,
       Authorization: `Bearer ${this.getToken()}`,
-      Entity: entity,
-      DeviceId: localStore.getValueFromKey("dev_intel"),
-      Id: id,
     };
   },
   getToken() {

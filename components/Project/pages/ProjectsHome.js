@@ -25,7 +25,7 @@ function ProjectsHome() {
 				</div>
 			</div>
 			<div className='container-lg pos-r'>
-				<div className={`con_5_2 al-start ${_.portfolio}`}>
+				<div className={` ${_.portfolio}`}>
 					<section className={`${_.portfolio_con}`}>
 						<ExploreProjects />
 						<div>
@@ -65,29 +65,7 @@ function ProjectsHome() {
 							</div>
 						</div>
 					</section>
-					<section className={`${_.portfolio_con} pos-st`}>
-						<div className='grid_txt_2'>
-							<h5 className='heading_med_1'>Frequently asked questions</h5>
-							<aside className='grid_txt_1'>
-								<Faq title={"how to get started"} openClasses={"bord-g-1 br"}>
-									<p>
-										Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem,
-										molestiae. Officiis distinctio, rem iusto aliquam molestiae
-										exercitationem? Ipsum ipsam aliquam, architecto laboriosam molestias
-										neque impedit molestiae possimus deserunt natus saepe?
-									</p>
-								</Faq>
-								<Faq title={"how do I know if I have a supervisor"} openClasses={"bord-g-1 br"}>
-									<p>
-										Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem,
-										molestiae. Officiis distinctio, rem iusto aliquam molestiae
-										exercitationem? Ipsum ipsam aliquam, architecto laboriosam molestias
-										neque impedit molestiae possimus deserunt natus saepe?
-									</p>
-								</Faq>
-							</aside>
-						</div>
-					</section>
+				
 				</div>
 			</div>
 		</section>
