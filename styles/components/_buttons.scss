@@ -150,6 +150,15 @@ button {
 		background-color: $col-red-btn;
 		color: $col-white;
 
+		&_light{
+			background-color: rgba($col-red, .1);
+			color: $col-red;
+
+		svg {
+			stroke: $col-red;
+		}
+		}
+
 		&:hover {
 			background-color: darken($col-red-btn, 6%);
 		}
@@ -195,7 +204,7 @@ button {
 		display: none;
 
 		&:checked + .onoff {
-			background-color: $col-pri-1;
+			background-color: $col-green;
 
 			&::before {
 				transform: translate(-50%, -50%);

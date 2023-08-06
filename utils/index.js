@@ -1,17 +1,30 @@
 import axios from "axios";
 import Papa from "papaparse";
+import mammoth from "mammoth";
 
-const readFile = (file, regex, binary = false) =>
+export const readAs = {
+	txt: "txt",
+	binary: "binary",
+	dataUrl: "dataurl",
+};
+
+const readFile = (file, regex = null, as = readAs.txt) =>
 	new Promise((res, rej) => {
 		const reader = new FileReader();
-		console.log({ name: file.name, r: regex });
+		// console.log({ name: file.name, r: regex });
 
-		if (!regex.test(file.name) && file.name) throw Error("files not supported ");
+		if (regex) {
+			if (!regex.test(file.name) && file.name) throw Error("files not supported ");
+		}
 		reader.addEventListener("load", () => res(reader.result));
 		reader.addEventListener("error", () => rej(reader.error));
-		if (binary) {
+		if (as === readAs.binary) {
 			reader.readAsArrayBuffer(file);
-		} else reader.readAsDataURL(file);
+		} else if (as === readAs.dataUrl) {
+			reader.readAsDataURL(file);
+		} else {
+			reader.readAsText(file);
+		}
 	});
 
 async function parseImagesB64(files, regex, count, size = 0) {
@@ -175,6 +188,69 @@ for (let i = thisYear; i > thisYear - 8; i--) {
 	});
 }
 
+class DocumentProcessor {
+	static introProjectMatches = () => [
+		/(ACKNOWLEDGEMENTS?)|(CERTIFICATION)/gi,
+		/([\S\s]abstract)|(\/[\S]abstract)/gi,
+		/(TABLE.{0,8}(OF)?.{0,8}CONTENTS?)[\s\w\W]+?((CHAPTER\s?FIVE))/gi,
+	];
+	static remainingDocMatches = () => [
+		/Background\s+of|to\s+(the)?\s+study/gi,
+		/CHAPTER.{1,8}?FIVE\s+?[^\W]/gi,
+		/Conclusion|\sREFE?RENCES\s/gi,
+	];
+	static projectTypes = {
+		SINGLE: "SINGLE",
+		MULTIFILE: "MULTIFILE",
+	};
+	static async convertTo(doc, type = "html") {
+		const arrayBuffer = await readFile(doc, /\.docx?/, readAs.binary);
+		let fileData = "";
+		if (type === "html") {
+			fileData = await mammoth.convertToHtml(
+				{
+					arrayBuffer,
+				},
+				{
+					ignoreEmptyParagraphs: true,
+				},
+			);
+		} else {
+			fileData = await mammoth.extractRawText({
+				arrayBuffer,
+			});
+		}
+
+		return fileData.value;
+	}
+
+	static detectCompleteDoc(plainDocxString) {
+		const matches = [...DocumentProcessor.introProjectMatches(), ...DocumentProcessor.remainingDocMatches()];
+		return DocumentProcessor.detect(plainDocxString, matches);
+	}
+	static detectIntro(plainDocxString) {
+		const matches = [...DocumentProcessor.introProjectMatches()];
+		return DocumentProcessor.detect(plainDocxString, matches);
+	}
+	static detectMainArticle(plainDocxString) {
+		const matches = [...DocumentProcessor.remainingDocMatches()];
+		return DocumentProcessor.detect(plainDocxString, matches);
+	}
+	static detect(plainDocxString, matches) {
+		for (let i = 0; i < matches.length; i++) {
+			const pattern = matches[i];
+
+			const res = pattern.exec(plainDocxString);
+
+			if (res) {
+				if (pattern[i + 1]) pattern[i + 1].lastIndex = res.index + res[0].length;
+			} else return false;
+		}
+		return true;
+	}
+}
+export const token =
+	"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDAzYWExN2JjMDAzYmM2YTkxMzdjMTUiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm5vbmNlIjoiOTAwMDBpdWl4a3ciLCJpYXQiOjE2ODEzMzM3NzAsImV4cCI6MTY4Mjc3Mzc3MCwiaXNzIjoiaGl2ZWMifQ.REOIP2WclRiyEOo7cwD5essmm-Dza5B4E_qLrt40i170y-NeI24tKE7lxfUxGCRoZPwOaTr2fV2j3HcfOmiJPorXBkO9V2OkdvHtnm6Kbq6ESIfT8Od1wXwijCt_WIhFyv0Or48YbMy2E5E54lahJpLbvdJ0GUjDCDOZnYpzBXEYj8pPtYUM4kMiBsSHz3dYr5Se85xOkqJ1LiuohagFk1MYqg0ZNtMnPN_ikpvA0fmmpP0EjZ1p3RoDSTkEdzdlYlK59XlMBXCcGGyDygrA3swAEWN3JnaDfPAESRibVWHP1GOKlnFEls1nm6xNbP4SnJMRjbnw_-4C0_oNLovcfQ";
 export {
 	compressImage,
 	parseImagesB64,
@@ -191,4 +267,5 @@ export {
 	parseNumToDate,
 	convertCSVFileToJSON,
 	years,
+	DocumentProcessor,
 };

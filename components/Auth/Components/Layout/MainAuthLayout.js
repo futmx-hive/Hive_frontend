@@ -6,12 +6,17 @@ import FormAuth from "../Forms/FormAuth";
 import FormOAuth from "../Forms/FormOAuth";
 import HeadText from "../HeadText";
 import _ from "./authLayout.module.scss";
+import Link from "next/link";
 
 function MainAuthLayout({ children }) {
 	return (
 		<main className={`${_.auth_layout} bg-w-1`}>
 			<div className={`${_.auth_layout_left}`}>
-				<Logo id='#logo_gr' />
+				<Link href={"/"}>
+					<a>
+						<Logo id='#logo' />
+					</a>
+				</Link>
 				<article className={`${_.auth_form}`}>{children}</article>
 			</div>
 			<HideOnMobile>
@@ -48,10 +53,12 @@ function RightPanel() {
 				</ul>
 			</article>
 			<div className='flexi'>
-				<a href='' className='btn btn_small btn_icon col-blu bg-w tablet flexi'>
-					<Icon id={"#check"} />
-					<span>Secured. FDIC Approved</span>
-				</a>
+				<Link href={"/search"}>
+					<a href='' className='btn btn_small btn_icon col-blu bg-w tablet flexi'>
+						<Icon id={"#check"} />
+						<span>Secured. FDIC Approved</span>
+					</a>
+				</Link>
 			</div>
 		</div>
 	);

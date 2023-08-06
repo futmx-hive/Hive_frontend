@@ -1,11 +1,3 @@
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes fadein {
   from {
     opacity: 0;
@@ -34,9 +26,8 @@
 }
 .auth_layout_right {
   background-size: cover;
-  background-image: url(../../../../public/photos/poik.jpg);
+  background-image: url(../../../../public/photos/poik.webp);
   width: 52%;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   right: 0;

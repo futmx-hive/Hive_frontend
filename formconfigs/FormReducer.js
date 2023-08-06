@@ -1,4 +1,4 @@
-import { DELETE, SET_INITIAL_ERRORS, UPDATE, RESET, ADD } from './FormActions';
+import { DELETE, SET_INITIAL_ERRORS, UPDATE, RESET, ADD } from "./FormActions";
 
 const getFieldsReport = (schema, values) => {
 	const errors = {};
@@ -11,8 +11,10 @@ const getFieldsReport = (schema, values) => {
 		);
 		return { formIsValid: true, fields, errors: {} };
 	} catch (err) {
-		for (let errItem of err.inner) {
-			errors[errItem.path] = errItem.errors[0];
+		if (Array.isArray(err?.inner)) {
+			for (let errItem of err?.inner) {
+				errors[errItem.path] = errItem.errors[0];
+			}
 		}
 		return {
 			formIsValid: false,
@@ -27,6 +29,7 @@ const formReducer = (state, action) => {
 	switch (action.type) {
 		case UPDATE: {
 			const { path, dest } = getPath(newState, name);
+
 			if (Array.isArray(path[dest])) {
 				if (index > -1) {
 					// console.log('puts in arrray');
@@ -110,12 +113,12 @@ const formReducer = (state, action) => {
 	}
 };
 
-function clone(obj) {
+export function clone(obj) {
 	return JSON.parse(JSON.stringify(obj));
 }
 function getPath(state, str) {
 	let path = null;
-	const route = ('fields.' + str).split('.');
+	const route = ("fields." + str).split(".");
 	for (let i = 0; i < route.length - 1; i++) {
 		if (i === 0) path = state[route[i]];
 		else path = path[route[i]];

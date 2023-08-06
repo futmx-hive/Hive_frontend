@@ -1,14 +1,14 @@
-const path = require('path');
+const path = require("path");
 const nextConfig = {
 	reactStrictMode: true,
 	sassOptions: {
-		includePaths: [path.resolve(__dirname, 'styles')],
+		includePaths: [path.resolve(__dirname, "styles")],
 	},
 	redirects() {
 		return [
 			{
-				source: '/',
-				destination: '/dashboard',
+				source: "/",
+				destination: "/home",
 				permanent: false,
 			},
 		];
@@ -16,8 +16,8 @@ const nextConfig = {
 	async rewrites() {
 		return [
 			{
-				source: '/settings',
-				destination: '/settings/profile',
+				source: "/settings",
+				destination: "/settings/profile",
 			},
 		];
 	},

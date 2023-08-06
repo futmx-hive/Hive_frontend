@@ -56,7 +56,7 @@ function ProjectsHome() {
 								<TabPanel index={0} value={active}>
 									<div className='grid_txt_2 mt-2'>
 										{[...Array(6).keys()].map((e, i) => (
-											<StudentSubmission submissionIndex={i} mode={1} />
+											<StudentSubmission key={i} submissionIndex={i} mode={1} />
 										))}
 									</div>
 								</TabPanel>

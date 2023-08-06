@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 const Single = ({ name, count, id, value, changeHandler, size = 1, setCount, index, error }) => {
 	const myref = useRef();
@@ -12,7 +12,7 @@ const Single = ({ name, count, id, value, changeHandler, size = 1, setCount, ind
 	return (
 		<input
 			ref={myref}
-			className={` form_input_single heading_huge weit-1 u-center br  ${error ? 'error' : ''}`}
+			className={` form_input_single heading_lg weit-1 u-center br  ${error ? "error" : ""}`}
 			placeholder='0'
 			type='text'
 			name={name}
@@ -23,7 +23,7 @@ const Single = ({ name, count, id, value, changeHandler, size = 1, setCount, ind
 			maxLength={1}
 			onKeyUp={(e) => {
 				if (/backspace/i.test(e.key)) {
-					changeHandler('');
+					changeHandler("");
 				}
 			}}
 			onChange={(e) => {

@@ -11,12 +11,12 @@ export default function UserCard() {
 			</span>
 			<HideOnMobile>
 				<article className='user_card flexi gap-15'>
-					<div className='tiny-ci center-grid upp heading_small bg-r col-w'>MM</div>
+					<div className='tiny-ci center-grid upp heading_small bg-gr br col-w'>EA</div>
 
-					<h5 className='heading_small cap'> Mahmud Maryam</h5>
+					<h5 className='heading_small cap'> Dr Enesi Aminu</h5>
 
 					<button>
-						<svg className='tiny_svg'>
+						<svg className='small_svg'>
 							<use xlinkHref='/svg/sprite/sprite.svg#down'></use>
 						</svg>
 					</button>

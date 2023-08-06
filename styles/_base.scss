@@ -51,6 +51,7 @@ button:disabled,
 .disabled.disabled {
 	cursor: not-allowed;
 	color: $col-white ;
+	background-color: lighten($col-pri, 60%);
 }
 input {
 	border: none;

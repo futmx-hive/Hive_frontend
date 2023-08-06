@@ -3,7 +3,6 @@ import AuthFormMain from "./AuthFormMain";
 import { TabPanel } from "@sharedUi/Tabs";
 import UseTabs from "@hooks/UseTabs";
 import OTPForm from "./OTPForm";
-import HowToVerifyForm from "./Verification/HowToVerifyForm";
 import UseNextPrev from "@hooks/UseNextPrev";
 
 function LoginForm() {
@@ -16,7 +15,7 @@ function LoginForm() {
 			</TabPanel>
 			<TabPanel index={1} value={active}>
 				<div className='mt-5'>
-					<OTPForm prev={nav.go(0)} />
+					<OTPForm prev={nav.go(0)} isLogin />
 				</div>
 			</TabPanel>
 		</>

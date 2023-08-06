@@ -57,6 +57,15 @@ function PoolForm() {
 							}}
 						/>
 					</div>
+					<Select2
+						label={"select allocation technique"}
+						placeholder={"how do you want students to be assigned?"}
+						options={[
+							{ label: "random", value: "random" },
+							{ label: "Assignee rank", value: "rank" },
+							{ label: "Student performance", value: "performance" },
+						]}
+					/>
 					{students.length && <AssignmentBoard students={students} />}
 					<div className='flexi gap-25 mt-4'>
 						<OnAndOffBtn name={"lock"} />

@@ -3,37 +3,38 @@ import PasswordField from "@form-components/PasswordField";
 import CtaButton from "@sharedUi/CtaButton";
 import Link from "next/link";
 import React from "react";
+import GoogleAuth from "../GoogleAuth";
+import { useAuth } from "@components/Auth/context/AuthProvider";
 
 function FormAuth({ isLogin, next }) {
+	const { authForm, sendOtp } = useAuth();
+	const { onChange, values, errors, formIsValid } = authForm;
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		await sendOtp();
+		next();
+	};
+
 	return (
 		<>
+			<GoogleAuth />
 			<div className='hr mt-1'>
-				<span className='col-gra-d'>Or continue passwordless</span>
+				<span className='col-gra-d'>Or with email</span>
 			</div>
-			<form action='' className='form_pkg'>
-				{/* {!isLogin && (
-					<>
-						<div className='form_2'>
-							<Field label={'first name *'} placeholder='elon' />
-							<Field label={'last name *'} placeholder='musk' />
-						</div>
-					</>
-				)} */}
-				<Field label={"email *"} type='email' placeholder={"elon@st.futminna.edu.ng"} />
-				{/* <PasswordField
-					type={"password"}
-					label={
-						<div className='flexi sp-btw'>
-							<span> password *</span>
-							<Link href={"/auth/password/reset"}>
-								<a className='btn_txt col-pri weit-2 heading_small cap'> forgot password</a>
-							</Link>
-						</div>
-					}
-					placeholder={"enter your password"}
-				/> */}
+			<form action='' className='form_pkg' onSubmit={handleSubmit}>
+				<Field
+					label={"email *"}
+					type='email'
+					placeholder={"elon@st.futminna.edu.ng"}
+					name={"email"}
+					handleChange={onChange}
+					value={values["email"]}
+					error={errors["email"]}
+				/>
+
 				<div className='mt-1 grid'>
-					<CtaButton onClick={next} design='btn_pri tablet'>
+					<CtaButton buttonType='submit' design='btn_pri tablet' disabled={!formIsValid}>
 						{isLogin ? "login" : " create account"}
 					</CtaButton>
 				</div>
@@ -49,9 +50,10 @@ function AuthFormBaseContent({ isLogin }) {
 	return (
 		<div className='mt-2 center-flex flexi gap-15'>
 			<span>{isLogin ? "Dont have an account?" : "Already have an account?"} </span>
-			<Link href={isLogin ? " /auth/signup" : "/auth/login"}>
-				<a className='btn_txt col-pri weit-2'>{isLogin ? " sign up" : "Login"}</a>
-			</Link>
+
+			<a href={isLogin ? " /auth/signup" : "/auth/login"} className='btn_txt col-pri weit-2'>
+				{isLogin ? " sign up" : "Login"}
+			</a>
 		</div>
 	);
 }

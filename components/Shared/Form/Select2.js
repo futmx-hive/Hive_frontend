@@ -1,7 +1,8 @@
 import React from "react";
 import UseToggle from "../../../hooks/UseToogle";
-import Select, { components } from "react-select";
+import Select, { components as components_ } from "react-select";
 import SmallLoader from "../SmallComponents/SmallLoader";
+import Icon from "@shared/SmallComponents/Icon";
 
 const style = {
 	multiValue: (styles, { data }) => {
@@ -33,16 +34,6 @@ const style = {
 	}),
 };
 
-const MyOption = (props) => {
-	const { innerProps, innerRef } = props;
-	console.log({ SelectProps: props });
-	return (
-		<article ref={innerRef} {...innerProps} className='custom-option'>
-			<h4>{props.data.artist}</h4>
-			<div className='sub'>{props.data.title} </div>
-		</article>
-	);
-};
 const Select2 = ({
 	label,
 	name,
@@ -73,6 +64,14 @@ const Select2 = ({
 				<SmallLoader scale={0.4} />
 			</div>
 		);
+
+	const DropdownIndicator = (props) => {
+		return (
+			<components_.DropdownIndicator {...props}>
+				<Icon id={"#down"} />
+			</components_.DropdownIndicator>
+		);
+	};
 
 	return (
 		<div className='form_group'>
@@ -115,13 +114,13 @@ const Select2 = ({
 						return {
 							...base,
 							boxShadow: "0",
-							border: isTouched && !!error ? "2px solid #ffc7c7" : "1px solid #dbdbdb",
+							border: isTouched && !!error ? "2px solid #ffc7c7" : "1px solid #c1c8cd",
 							":hover": {
-								border: "1px solid #8ABCFF;",
+								border: "1px solid #687076;",
 							},
 							":focus": {
 								...base[":focus"],
-								border: isTouched && !!error ? "1px solid #ffc7c7" : "1px solid #0069cc",
+								border: isTouched && !!error ? "1px solid #ffc7c7" : "1px solid #11181c",
 								boxShadow: 0,
 							},
 						};
@@ -135,7 +134,7 @@ const Select2 = ({
 					//   };
 					// },
 				}}
-				components={components}
+				components={{ DropdownIndicator, ...components }}
 			/>
 			{errorText()}
 		</div>

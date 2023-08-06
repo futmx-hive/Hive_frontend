@@ -17,7 +17,7 @@ const SidebarLink = ({ title, icon, link, count, onClick = () => null, isOpen })
 			>
 				<a
 					className={`sidebar_link  cap flexi br ${
-						new RegExp(icon || link, "gi").test(pathname) ? "active" : ""
+						new RegExp(`^${link}$`, "gi").test(pathname.slice(1)) ? "active" : ""
 					}`}
 					style={
 						!isOpen
