@@ -1,5 +1,5 @@
-import { fadeIn, an } from '@animations/index';
-import { motion } from 'framer-motion';
+import { fadeIn, an } from "@animations/index";
+import { motion } from "framer-motion";
 
 const SpaceBottom = ({ children }) => {
 	const animation = fadeIn();
@@ -11,13 +11,14 @@ const SpaceBottom = ({ children }) => {
 					...animation.final,
 					transition: {
 						...animation.transition,
-						when: 'beforeChildren',
+						when: "beforeChildren",
 					},
 				},
 			}}
 			{...an}
 			exit='initial'
-			className='space_bottom bg-w-1'>
+			className='space_bottom bg-w-1'
+		>
 			{children}
 		</motion.div>
 	);

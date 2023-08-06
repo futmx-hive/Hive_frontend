@@ -4,25 +4,50 @@ import UseToogle from "@hooks/UseToogle";
 import useResize from "@hooks/UseResize";
 
 const DbrdCtx = createContext();
-const DashboardLayout = ({ children }) => {
+const DashboardLayout = ({ children, SidebarComponent = null }) => {
 	const _ = UseToogle(true);
 	const width = useResize();
 	const sidebarData = [
 		{
 			title: "dashboard",
 			icon: "dashboard",
+			link: "dashboard",
 		},
 		{
 			title: "pools",
 			icon: "pools",
+			link: "pools",
 		},
 		{
-			title: "assignees",
-			icon: "assignees",
+			title: "assignment",
+			link: "assignment",
+			icon: "assignment",
 		},
 		{
-			title: "projects",
-			link: "projects",
+			name: "projects",
+
+			items: [
+				{
+					title: "upload ",
+					link: "projects/upload",
+					icon: "upload_projects",
+				},
+				{
+					title: "your projects",
+					link: "projects",
+					icon: "my_project",
+				},
+			],
+		},
+		{
+			name: "roles",
+			items: [
+				{
+					title: "members",
+					link: "roles",
+					icon: "assignees",
+				},
+			],
 		},
 		{
 			title: "settings",
@@ -33,7 +58,7 @@ const DashboardLayout = ({ children }) => {
 	return (
 		<DbrdCtx.Provider value={{ _, width }}>
 			<main className={`dashboard_layout ${_.isOpen && width < 1200 ? "auto" : ""}`}>
-				<Sidebar data={sidebarData} />
+				{SidebarComponent ? <SidebarComponent /> : <Sidebar data={sidebarData} />}
 				{children}
 			</main>
 		</DbrdCtx.Provider>

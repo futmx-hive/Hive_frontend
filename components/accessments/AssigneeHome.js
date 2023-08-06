@@ -11,7 +11,7 @@ function AssigneeHome() {
 	return (
 		<section>
 			<div className='container'>
-				<div className='con_4_1'>
+				<div className='con_4_1 mt-3'>
 					<BasicFilter />
 				</div>
 			</div>
@@ -20,20 +20,20 @@ function AssigneeHome() {
 				<div className={`con_2_4 al-start ${_.assignee_sub_pack}`}>
 					<Card xtraClassNames={"pos-st"}>
 						<div className='grid_txt_2 p-2'>
-							<h4 className='heading_med'>Student names</h4>
+							<h4 className='heading_med_1 cap'>Student names</h4>
 							<aside>
 								<div className='grid_txt '>
-									<StudentCard />
-									<StudentCard />
-									<StudentCard />
-									<StudentCard />
+									<StudentCard classes={"bord-g-1 p-1"} />
+									<StudentCard classes={"bord-g-1 p-1"} />
+									<StudentCard classes={"bord-g-1 p-1"} />
+									<StudentCard classes={"bord-g-1 p-1"} />
 								</div>
 							</aside>
 						</div>
 					</Card>
 					<div className='grid_txt_2'>
 						{[...Array(6).keys()].map((e, i) => (
-							<StudentSubmission submissionIndex={i} />
+							<StudentSubmission key={i} submissionIndex={i} />
 						))}
 					</div>
 				</div>

@@ -12,6 +12,7 @@
         "@form-components/*":["components/Shared/Form/*"],
         "@sharedUi/*":["components/Shared/UIelements/*"],
         "@shared/*":["components/Shared/*"],
+        "@auth/*": ["components/Auth"],
         "@components/*": ["components/*"],
       }
     }

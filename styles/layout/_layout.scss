@@ -17,12 +17,16 @@
         max-width: 91.01%;
     }
 }
-$cons: 833 718 675 583 752;
+$cons: 833 718 675 583 752 ;
 @each $var in $cons {
     .container-c#{$var} {
         max-width: $var/10 * 1rem;
         margin: 0 auto;
     }
+}
+.container-main{
+    max-width: 135rem;
+    margin: auto;
 }
 
 .container-lg {
@@ -32,7 +36,7 @@ $cons: 833 718 675 583 752;
 }
 .div_4 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: 1.5rem;
 }
 .div_41 {

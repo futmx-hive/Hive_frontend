@@ -1,7 +1,7 @@
-import Icon from '@shared/SmallComponents/Icon';
-import React, { Fragment } from 'react';
-import Link from 'next/link';
-import FallBackScreen from './Fallback';
+import Icon from "@shared/SmallComponents/Icon";
+import React, { Fragment } from "react";
+import Link from "next/link";
+import FallBackScreen from "./Fallback";
 
 const FallbackBig = ({
 	imgID,
@@ -12,9 +12,10 @@ const FallbackBig = ({
 	to,
 	isOpen = false,
 	classes,
-	onClick = null,
 	topContent,
-	childrenParams = [],
+	loading = false,
+	isError = false,
+	LoadingComp = <></>,
 }) => {
 	const resFooter = () => {
 		if (!!onClick) {
@@ -31,6 +32,12 @@ const FallbackBig = ({
 			);
 	};
 
+	if (loading || isError) {
+		if (loading || isError) {
+			return <FallBackScreen header={LoadingComp} isOpen={false} />;
+		}
+	}
+
 	return (
 		<FallBackScreen
 			header={
@@ -39,7 +46,7 @@ const FallbackBig = ({
 						<div className='u-center'>
 							<Icon id={imgID} classes='lag_svg' />
 						</div>
-						<h5 className='heading_med  col-bl'>{title}</h5>
+						<h5 className='heading_med  col-bl u-center'>{title}</h5>
 					</div>
 				</Fragment>
 			}
@@ -48,8 +55,9 @@ const FallbackBig = ({
 			big
 			isOpen={isOpen}
 			hClass={classes}
-			topContent={topContent}>
-			{typeof children === 'function' ? children(...childrenParams) : children}
+			topContent={topContent}
+		>
+			{typeof children === "function" ? children() : children}
 		</FallBackScreen>
 	);
 };

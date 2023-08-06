@@ -66,3 +66,21 @@
 	font-weight: $weight-3;
 }
 
+
+.weit {
+	&-0{
+		font-weight:200
+	}
+	&-1 {
+		font-weight: $weight-1;
+	}
+	&-2 {
+		font-weight: $weight-2;
+	}
+	&-21 {
+		font-weight: 500;
+	}
+	&-3 {
+		font-weight: $weight-3;
+	}
+}

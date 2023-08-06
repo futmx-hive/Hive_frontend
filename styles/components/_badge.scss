@@ -42,6 +42,10 @@
 		background-color: rgba($col-or, 0.35);
 		color: darken($col-or, 10%);
 	}
+	&_blu{
+		background-color: rgba($col-blue-dark, .2);
+		color: $col-blue-dark;
+	}
 
 	&_txt_red {
 		color: $col-red;

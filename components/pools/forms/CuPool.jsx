@@ -6,7 +6,9 @@ function CrudPool({ title = "create pool" }) {
 	return (
 		<>
 			<TopNav title={title} />
-			<PoolForm />
+			<section className='mt-4'>
+				<PoolForm />
+			</section>
 		</>
 	);
 }

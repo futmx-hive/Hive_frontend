@@ -8,7 +8,7 @@ export const submissionTypes = ["proposal", "chapter 1", "chapter 2", "chapter 3
 
 function StudentSubmission({ submissionIndex = 0, mode = 0 }) {
 	const comp = (
-		<div className='flex-1 flexi sp-btw p-x-1'>
+		<div className='flex-1 flexi sp-btw '>
 			<h2 className='heading_med cap weit-2 col-col-gra-bt-d'>{submissionTypes[submissionIndex]}</h2>
 			<span className='badge_bg badge_gr upp'> active</span>
 		</div>
@@ -27,14 +27,14 @@ function StudentSubmission({ submissionIndex = 0, mode = 0 }) {
 					</div>
 					{
 						[
-							<div className='flexi gap-25'>
+							<div className='flexi gap-25' key={"A"}>
 								<button className='btn_med btn_pri  weit-1 tablet'> Approve submission</button>
 								<button className='btn_med btn_bord col-r  weit-1 tablet'>
 									{" "}
 									Reject Submission
 								</button>
 							</div>,
-							<div className='flex gap-15'>
+							<div className='flex gap-15' key={"b"}>
 								<button className='btn_med btn_pri  weit-1 tablet'> Edit</button>
 								<button className='btn_med btn_bord col-r  weit-1 tablet'> delete</button>
 							</div>,

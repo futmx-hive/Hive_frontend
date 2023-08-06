@@ -7,7 +7,7 @@ import BankAndCards from "./BankAndCards";
 import { useEffect } from "react";
 import Preferences from "./Preferences";
 
-const tabNames = ["profile", "Bank and cards", "preferences"];
+const tabNames = ["profile", "devices", "preferences"];
 
 function SettingsHome({ index, tabspathData }) {
 	const [active, setActive] = UseTabs(index);

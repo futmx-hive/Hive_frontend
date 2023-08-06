@@ -13,12 +13,17 @@ function AssignmentBoard({ students }) {
 			setAssignees(randomlyAssign(students, names));
 		} catch (error) {
 			console.log(error);
-			setError("invalid csv file please ensure that file has name, exam_no, and matric_no fields");
+			setError(
+				<>
+					invalid csv file please ensure that file has{" "}
+					<span className='weit-3 upp'> name , exam_no, and matric_no </span> fields
+				</>,
+			);
 		}
 	}, [stringifiedStuds]);
 	console.log(assignees);
 	return error ? (
-		<div className='bg-r p-2 br '>
+		<div className='bg-r p-2 col-w-1 '>
 			<p>{error}</p>
 		</div>
 	) : (

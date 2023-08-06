@@ -15,7 +15,7 @@
         width: 60%;
     }
     &_heading {
-        font-size: 1.8rem;
+        font-size: 2.1rem;
         text-transform: capitalize;
         font-weight: $weight-2;
         color: $col-black;
@@ -75,6 +75,13 @@
         font-size: 1.4rem;
         @include respond(gsm){
             font-size: 16px;
+        }
+        &_txt{
+            font-family: inherit;
+            font-size: 1.4rem;
+            @include respond(gsm){
+                font-size: 16px;
+            }
         }
         &_pack {
             border: 1px solid $col-gray-btn-l;
@@ -242,7 +249,7 @@
     // }
     &_pack {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0.5rem, 1fr));
+        grid-template-columns: repeat(6, minmax(0.5rem, 1fr));
         column-gap: 1.5rem;
     }
 
@@ -280,7 +287,7 @@
         padding: 0 3rem;
     }
     &_header {
-        padding: 1.5rem ;
+        padding: 2rem 3rem;
         cursor: pointer;
         position: relative;
 
@@ -335,6 +342,7 @@
     }
     &:hover {
         border: 1px solid $col-gray-btn-l;
+      
     }
 }
 .form_input__indicator-separator {
@@ -343,9 +351,7 @@
 .form_input__single-value {
     font-size: 1.6rem;
 }
-.form_input__dropdown-indicator {
-    transform: scale(1.5);
-}
+
 
 
 

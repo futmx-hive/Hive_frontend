@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-function Icon({ id, classes = 'tiny_svg', ...rest }) {
+function Icon({ id, classes = "tiny_svg", style }) {
 	return (
-		<svg className={`${classes ? classes : ''}`} {...rest}>
+		<svg ref={null} className={`${classes ? classes : ""}`} style={style}>
 			<use xlinkHref={`/svg/sprite/sprite.svg${id}`}></use>
 		</svg>
 	);

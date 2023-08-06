@@ -2,11 +2,16 @@
 
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	padding-bottom: 4rem;
 
-	border-bottom: 2px solid $col-blue-light;
-	border-right: 2px solid $col-blue-light;
-	padding: 4rem  2rem;
+	border-bottom: 1px solid $slate6;
+	border-right: 1px solid $slate6;
+
+	& .sidebar_logo{
+		margin: 1.8rem;
+	}
+
+
 	&_hide{
 		display: none;
 	}
@@ -74,21 +79,22 @@
   }
 
 	&_list {
-		padding: 1.5rem 0;
-	}
-	&_logo {
-		width: 17rem;
-		height: 4rem;
+		padding: 4rem 0;
+		margin-bottom: auto;
 
 	
-
+	}
+	&_logo {
+		width: 10rem;
+		height: 4rem;
 	}
 
 	&_base {
-		.contact_us {
-			padding: 1rem 1rem;
+		
+
+
 			margin: 0 2rem;
-		}
+	
 	}
 
 	button {
@@ -98,13 +104,19 @@
 	&_list {
 		display: grid;
 		row-gap: 1.4rem;
+
+		&_item{
+			margin: 0 2rem;
+		}
 	}
 
 	&_link {
 		width: 100%;
 		padding: 1.4rem;
+
+
 	    white-space: nowrap;
-		padding-left: 14.999%;
+		padding-left: 4%;
 		color: $col-black;
 		font-weight: $weight-1;
 		position: relative;
@@ -123,7 +135,9 @@
 
 		&:hover,
 		&.active {
-			color: $col-pri-1;
+			background-color: $slate6;
+			color: $col-pri;
+			transition: $transition;
 
 			&::before {
 				opacity: 1;

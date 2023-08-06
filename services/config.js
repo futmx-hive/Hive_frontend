@@ -1,8 +1,8 @@
-import localStore from "./localStore";
-import { encode } from "js-base64";
+import localStore, { SPECIAL_KEY_NAMES } from "./localStore";
+
 import axios from "axios";
-const base = {
-	url: process.env.NODE_ENV === "development" ? "https://myduka.co/SOKODev/webapi/" : "https://myduka.co/webapi/",
+export const base = {
+	url: process.env.NODE_ENV === "development" ? "http://localhost:3002/api/v1/" : "https://myduka.co/webapi/",
 
 	basicH: {
 		"Content-Type": "application/json",
@@ -11,55 +11,26 @@ const base = {
 		return {
 			...this.basicH,
 			Authorization: `Bearer ${this.getToken()}`,
-			DeviceId: localStore.getValueFromKey("dev_intel"),
 		};
 	},
-	authH({ entity, id = "" }) {
+	authH() {
 		return {
 			...this.basicH,
 			Authorization: `Bearer ${this.getToken()}`,
-			Entity: entity,
-			DeviceId: localStore.getValueFromKey("dev_intel"),
-			Id: id,
 		};
 	},
 	getToken() {
-		let token = localStore.getValueFromKey("twix_chunk");
-		localStore.removeKey("token");
-		let encodedToken = encode(token);
+		let token = localStore.getValueFromKey(SPECIAL_KEY_NAMES.TOKEN);
+
 		// console.log(encodedToken);
-		return encodedToken;
+		return token;
 	},
 	getMerchant() {
 		const value = localStore.getValueFromKey("merchant");
 		if (value) return JSON.parse(value);
 		return false;
 	},
-	defaults: {
-		getMerchant() {
-			return this.getMerchant;
-		},
-		merchantSignup() {
-			return {
-				email: this.getMerchant() ? this.getMerchant().email : "",
-				storeName: this.getMerchant() ? this.getMerchant().storeName : "",
-				address: this.getMerchant() ? this.getMerchant().address : "",
-				city: this.getMerchant() ? this.getMerchant().city : "",
-				country: this.getMerchant() ? this.getMerchant().country : "",
-				currency: this.getMerchant() ? this.getMerchant().currency : "",
-				merchantId: this.getMerchant() ? this.getMerchant().merchantId : "",
-			};
-		},
-		// merchantLogin() {
-		// 	return {
-		// 		deviceId: '15784528',
-		// 		deviceModel: 'Samsung S20',
-		// 		deviceOS: 'Android',
-		// 		deviceOSVersion: '10',
-		// 		notificationId: 'xyz',
-		// 	};
-		// },
-	},
+	defaults: {},
 	async makeReq(callback) {
 		try {
 			const data = await callback();
@@ -92,5 +63,3 @@ const base = {
 		};
 	},
 };
-
-export default base;

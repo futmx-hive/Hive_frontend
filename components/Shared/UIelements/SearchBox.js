@@ -1,10 +1,7 @@
-const SearchBox = ({ value, onChange, placeholder, readonly = false, full = false }) => {
+const SearchBox = ({ value, onChange, placeholder, readonly = false, full = false, classes = "" }) => {
 	return (
-		<div className={`search br ${full ? "full" : ""}`}>
-			<div
-				className='search_input  bg-w   bord-g-1   flexi'
-				style={{ borderRadius: "7px", overflow: "hidden" }}
-			>
+		<div className={`search  ${full ? "full" : ""}`}>
+			<div className={`search_input br-1  bg-w   bord-g-1   flexi ${classes}`} style={{ overflow: "hidden" }}>
 				<input
 					type='text'
 					placeholder={placeholder ? placeholder : "search products..."}

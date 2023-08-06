@@ -1,12 +1,11 @@
 .top_nav {
-	padding: 2rem 0;
-	margin-bottom: 1.5rem;
+	padding: 1.8rem 0;
 	position: sticky;
 	z-index: 5;
 	top: 0;
 	left: 0;
 	right: 0;
-	border-bottom: 2px solid hsl(211deg, 64%, 96%);
+	border-bottom: 1px solid $slate6;
 	@include respond(gsm){
 		background-color: $col-pri;
 		position: fixed;

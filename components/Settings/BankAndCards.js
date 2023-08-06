@@ -12,15 +12,11 @@ function BankAndCards() {
 		<section>
 			<div className='sp-btw flexi '>
 				<Tabs classes='flex-1 mr-5' value={active} onChange={setActive} max={4} design={"LINE"}>
-					<TabBtn>Bank cards</TabBtn>
-					<TabBtn>Bank Accounts</TabBtn>
+					<TabBtn>Registered devices</TabBtn>
 				</Tabs>
 				<HideOnMobile>
 					<TabPanel index={0} value={active}>
-						<button className='btn_med btn_pri heading_small br-1'>add bank card</button>
-					</TabPanel>
-					<TabPanel index={1} value={active}>
-						<button className='btn_med btn_pri heading_small br-1'>bank account</button>
+						<button className='btn_med btn_pri heading_small br-1'>add a device</button>
 					</TabPanel>
 				</HideOnMobile>
 			</div>

@@ -1,14 +1,14 @@
-import CloseBtn from '@shared/SmallComponents/CloseBtn';
-import Icon from '@shared/SmallComponents/Icon';
-import React from 'react';
-import _ from './style.module.scss';
+import CloseBtn from "@shared/SmallComponents/CloseBtn";
+import Icon from "@shared/SmallComponents/Icon";
+import React from "react";
+import _ from "./style.module.scss";
 
 export default function AddedPaymentMtd({
-	title = '**** **** **** 8994',
-	base = 'exp 1/24',
+	title = "iPhone 13",
+	base = "added 2months ago",
 	onDelete = () => null,
 	isButton = false,
-	buttonText = 'add new bank account',
+	buttonText = "add new bank account",
 	onAdd = () => null,
 	onClick = () => null,
 }) {
@@ -16,7 +16,7 @@ export default function AddedPaymentMtd({
 		<>
 			<button className='flexi gap-15 cap heading_small' onClick={onClick}>
 				<div className='nano-ci bg-b center-flex'>
-					<Icon id={'#plus'} />
+					<Icon id={"#plus"} />
 				</div>
 				<span className='btn_txt'> {buttonText}</span>
 			</button>
